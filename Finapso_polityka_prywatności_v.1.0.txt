@@ -1,0 +1,420 @@
+POLITYKA PRYWATNOŚCI APLIKACJI FINAPSO
+
+Projekt roboczy wersji 1.0 dla pierwszego wydania bez reklam
+Data ostatniej aktualizacji projektu: 22.08.2026 r.
+
+
+NOTA REDAKCYJNA — USUNĄĆ PRZED PUBLIKACJĄ
+
+Ten dokument jest projektem przygotowanym na podstawie audytu technicznego
+aplikacji Finapso 1.37.25. Nie jest jeszcze zatwierdzoną wersją publikacyjną
+i nie powinien być podpinany w Google Play Console, dopóki:
+
+1) finalny plik AAB nie zostanie ponownie porównany z treścią dokumentu;
+
+2) dane finansowe, preferencje, PIN, paragony i OCR nie zostaną wyłączone z
+   Android Cloud Backup oraz transferu urządzenie–urządzenie albo poniższy opis
+   kopii nie zostanie zaakceptowany jako stan wydania;
+
+3) nie zostanie potwierdzona i rzeczywiście wdrożona retencja wiadomości oraz
+   załączników przesyłanych do wsparcia;
+
+4) nie zostanie rozstrzygnięte, czy asystent powiadomień będzie dostępny w
+   pierwszym wydaniu;
+
+5) SDK Google Mobile Ads i UMP nie zostaną usunięte z wariantu produkcyjnego
+   albo test ruchu finalnego AAB nie potwierdzi, że pozostają nieaktywne;
+
+6) dokładna rewizja nie zostanie zatwierdzona przez właściciela i osobę
+   posiadającą odpowiednie kompetencje prawne.
+
+
+1. O DOKUMENCIE I APLIKACJI
+
+Niniejsza Polityka prywatności opisuje zasady przetwarzania danych w związku
+z korzystaniem z aplikacji mobilnej Finapso, identyfikowanej w systemie Android
+pakietem app.finapso.android, oraz z kontaktem ze wsparciem Finapso.
+
+Finapso służy do prowadzenia prywatnej ewidencji budżetu i finansów osobistych.
+Aplikacja umożliwia między innymi zapisywanie transakcji, budżetów, kategorii,
+celów, ustawień oraz paragonów, a także tworzenie lokalnych analiz i zestawień.
+
+Finapso nie jest bankiem, systemem płatniczym ani usługą dostępu do rachunku
+bankowego. Aplikacja nie wymaga utworzenia konta, rejestracji ani logowania do
+usługi Finapso.
+
+Podstawowe dane wprowadzane do aplikacji są przechowywane lokalnie na urządzeniu
+użytkownika. Nie oznacza to jednak, że w każdym przypadku wszystkie dane
+pozostają wyłącznie na urządzeniu. Wybrane informacje mogą opuścić urządzenie
+w ramach systemowej kopii Androida, technicznej telemetrii użytego SDK albo
+zgłoszenia dobrowolnie wysłanego przez użytkownika. Przypadki te opisano niżej.
+
+
+2. ADMINISTRATOR I KONTAKT
+
+Administratorem danych osobowych otrzymywanych w związku z obsługą Finapso
+jest:
+
+Bartosz Bohdziewicz
+
+Kontakt w sprawach prywatności i wsparcia:
+
+finapso.support@gmail.com
+
+Administrator nie wyznaczył inspektora ochrony danych.
+
+
+3. DANE PRZECHOWYWANE LOKALNIE
+
+W zależności od używanych funkcji Finapso może przechowywać na urządzeniu:
+
+1) kwoty, przychody, wydatki, transakcje, salda, waluty, budżety, kategorie,
+   cele, oszczędności i reguły cykliczne;
+
+2) nazwy, notatki, ustawienia, dane gospodarstwa domowego oraz informacje
+   wyprowadzone z danych zapisanych przez użytkownika;
+
+3) obrazy i dokumenty PDF paragonów, tekst rozpoznany przez OCR, pozycje
+   paragonu oraz poprawki wprowadzone przez użytkownika;
+
+4) ustawienia aplikacji, w tym informacje potrzebne do działania blokady PIN;
+
+5) dane przenośnej kopii utworzonej na polecenie użytkownika;
+
+6) jeżeli asystent powiadomień jest dostępny i został włączony — lokalne
+   wyniki opisane w punkcie 7.
+
+Administrator nie otrzymuje automatycznie dostępu do tych danych i nie może
+ich przeglądać ani odzyskać. Może je poznać tylko wtedy, gdy użytkownik sam
+przekaże je w wiadomości lub zgłoszeniu.
+
+PIN ogranicza dostęp do interfejsu aplikacji, ale nie jest równoznaczny z
+pełnym szyfrowaniem bazy danych ani plików eksportu. Użytkownik powinien również
+chronić urządzenie blokadą systemową.
+
+
+4. LOKALNE ANALIZY, APARAT, PARAGONY I OCR
+
+Obliczenia budżetowe, analizy, prognozy, porównania i podsumowania są
+wykonywane lokalnie na urządzeniu. Administrator nie otrzymuje danych
+stanowiących podstawę tych operacji ani ich wyników.
+
+Użytkownik może zrobić zdjęcie paragonu albo wybrać obraz lub dokument z
+urządzenia. Obraz paragonu i rozpoznany tekst są przetwarzane lokalnie. Finapso
+korzysta przy tym z biblioteki Google ML Kit Text Recognition.
+
+Zgodnie z dokumentacją Google obrazy i rozpoznany z nich tekst nie są wysyłane
+do Google przez funkcję rozpoznawania tekstu. ML Kit może jednak przesyłać do
+Google dane techniczne i diagnostyczne, takie jak informacje o konfiguracji
+aplikacji i urządzenia, zdarzenia, błędy oraz identyfikator instalacji. Dane te
+służą utrzymaniu, diagnostyce i poprawie działania SDK.
+
+Więcej informacji o zasadach Google znajduje się pod adresami:
+
+https://developers.google.com/ml-kit/android-data-disclosure
+
+https://policies.google.com/privacy
+
+
+5. SYSTEMOWE KOPIE ANDROIDA I TRANSFER NA NOWE URZĄDZENIE
+
+W wersji aplikacji objętej audytem część danych Finapso może zostać ujęta
+w mechanizmach Android Cloud Backup lub transferu danych na nowe urządzenie.
+Dotyczy to w szczególności głównej bazy finansowej, preferencji i niektórych
+dokumentów paragonów. Obrazy paragonów są wyłączone z kopii chmurowej, lecz
+zakres transferu urządzenie–urządzenie może być szerszy.
+
+Kopia jest obsługiwana przez system Android i usługi Google zgodnie z
+ustawieniami urządzenia oraz konta Google. Administrator nie ma dostępu do jej
+treści, nie ustala okresu jej przechowywania i nie może jej samodzielnie usunąć.
+Użytkownik zarządza kopiami za pomocą ustawień urządzenia i konta Google.
+
+Zakres systemowej kopii ma zostać ograniczony przed pierwszym wydaniem MVP.
+Jeżeli ograniczenie zostanie wdrożone i potwierdzone testem finalnego AAB, ten
+punkt musi zostać odpowiednio zaktualizowany przed publikacją Polityki.
+
+
+6. EKSPORT I IMPORT DANYCH
+
+Finapso umożliwia użytkownikowi samodzielne utworzenie przenośnej kopii danych
+oraz jej późniejszy import. Operacja jest rozpoczynana przez użytkownika, a
+miejsce zapisania albo wybrania pliku wskazuje system Android.
+
+Przenośna kopia może zawierać dane finansowe, preferencje, obrazy i dokumenty
+paragonów oraz informacje związane z blokadą PIN. Plik ma mechanizm kontroli
+integralności, ale nie jest szyfrowany przez Finapso. Osoba posiadająca dostęp
+do pliku może uzyskać dostęp do jego zawartości.
+
+Administrator nie otrzymuje kopii eksportu. Użytkownik odpowiada za wybór
+bezpiecznego miejsca zapisu, ochronę pliku i jego usunięcie, gdy nie jest już
+potrzebny.
+
+
+7. OPCJONALNY ASYSTENT POWIADOMIEŃ
+
+Jeżeli funkcja asystenta powiadomień znajdzie się w danej wersji Finapso,
+pozostaje domyślnie wyłączona i wymaga osobnego włączenia oraz nadania dostępu
+w ustawieniach Androida.
+
+Systemowy dostęp do powiadomień jest szeroki i technicznie obejmuje
+powiadomienia wszystkich aplikacji, a nie tylko aplikacji finansowych. Finapso
+odczytuje ograniczony zestaw standardowych pól tekstowych, aby lokalnie wykryć
+pojedynczą kwotę w PLN i zaproponować transakcję. Treść może przypadkowo
+obejmować wiadomości, kody, informacje zdrowotne albo inne dane niezwiązane z
+finansami.
+
+Surowa treść powiadomienia jest analizowana w pamięci. Finapso nie zapisuje jej
+w bazie i nie przesyła jej do Administratora, Google ML Kit ani SDK reklamowych.
+Aplikacja może zapisać lokalnie wynik pochodny, w tym nazwę pakietu aplikacji
+źródłowej, kanał, czas, wykrytą kwotę i skróty HMAC potrzebne do lokalnych
+reguł uczenia.
+
+Kandydat transakcji jest przechowywany maksymalnie przez 24 godziny oraz
+usuwany po działaniu użytkownika lub wyłączeniu funkcji. Reguły uczenia nie mają
+automatycznego terminu usunięcia; użytkownik może usunąć regułę dla źródła,
+usunąć wszystkie reguły albo wykonać pełny reset danych.
+
+Użytkownik może cofnąć dostęp w ustawieniach Androida. Historia powiadomień
+prowadzona przez system Android pozostaje poza kontrolą Finapso.
+
+Asystent jest funkcją eksperymentalną i nie powinien zostać udostępniony w MVP
+bez osobnego, wyraźnego wyjaśnienia w aplikacji, przeglądu prawnego oraz testów
+na finalnym wydaniu.
+
+
+8. KONTAKT ZE WSPARCIEM I DOBROWOLNE ZAŁĄCZNIKI
+
+Użytkownik może skontaktować się ze wsparciem przez pocztę elektroniczną albo,
+jeżeli funkcja jest dostępna, przez formularz w aplikacji.
+
+W związku ze zgłoszeniem Administrator może otrzymać:
+
+1) adres e-mail i inne dane kontaktowe podane przez użytkownika;
+
+2) kategorię i treść wiadomości;
+
+3) informacje techniczne potrzebne do rozpoznania problemu, na przykład wersję
+   aplikacji i systemu;
+
+4) dobrowolnie dołączone zrzuty ekranu, obrazy paragonu, surowy tekst OCR albo
+   plik z danymi diagnostycznymi dotyczącymi paragonu.
+
+Przed wysłaniem załączników użytkownik powinien sprawdzić ich zawartość i
+usunąć informacje, które nie są potrzebne do rozwiązania sprawy. Przesłanie
+paragonu lub OCR jest dobrowolne i wymaga jawnego działania użytkownika.
+
+Formularz aplikacji, jeżeli jest aktywny, przesyła zgłoszenie przez połączenie
+HTTPS za pośrednictwem technicznego relayu do skrzynki
+finapso.support@gmail.com. Operator relayu oraz jego zasady przetwarzania muszą
+zostać potwierdzone przed publikacją tej Polityki.
+
+
+9. CELE I PODSTAWY PRZETWARZANIA PRZEZ ADMINISTRATORA
+
+Administrator przetwarza dane, które użytkownik dobrowolnie przekazuje do
+wsparcia, w następujących celach:
+
+1) udzielenie odpowiedzi, obsługa zgłoszenia i utrzymanie bezpieczeństwa
+   Finapso — na podstawie prawnie uzasadnionego interesu Administratora,
+   polegającego na komunikacji z użytkownikami, rozwiązywaniu problemów i
+   rozwijaniu aplikacji (art. 6 ust. 1 lit. f RODO);
+
+2) podjęcie działań na żądanie użytkownika przed zawarciem umowy albo wykonanie
+   umowy, jeżeli wiadomość dotyczy takiej sprawy (art. 6 ust. 1 lit. b RODO);
+
+3) wykonanie obowiązku wynikającego z przepisów prawa, jeżeli ma on
+   zastosowanie (art. 6 ust. 1 lit. c RODO);
+
+4) ustalenie, dochodzenie lub obrona roszczeń — na podstawie prawnie
+   uzasadnionego interesu Administratora (art. 6 ust. 1 lit. f RODO).
+
+Podanie danych w wiadomości jest dobrowolne, lecz brak informacji niezbędnych
+do zrozumienia sprawy może uniemożliwić udzielenie odpowiedzi.
+
+Podstawy prawne tego punktu wymagają zatwierdzenia przed publikacją dokumentu.
+
+
+10. ODBIORCY DANYCH I TRANSFERY POZA EOG
+
+W zależności od używanej funkcji dane mogą być przetwarzane przez:
+
+1) Google jako operatora Google Play, dostawcę systemowych kopii Androida,
+   dostawcę ML Kit oraz dostawcę poczty Gmail;
+
+2) operatora technicznego relayu zgłoszeń, jeżeli formularz w aplikacji jest
+   aktywny;
+
+3) dostawców hostingu i infrastruktury technicznej w zakresie niezbędnym do
+   utrzymania usługi;
+
+4) doradców prawnych, księgowych lub technicznych, jeżeli dostęp jest
+   niezbędny do wykonania ich zadania;
+
+5) organy publiczne, jeżeli przekazanie danych wynika z przepisów prawa.
+
+Administrator nie sprzedaje danych osobowych ani lokalnych danych finansowych
+użytkowników. Nie przekazuje danych finansowych do celów reklamowych.
+
+Google i inni dostawcy mogą przetwarzać dane przy wykorzystaniu infrastruktury
+poza Europejskim Obszarem Gospodarczym. Zastosowanie mogą mieć w szczególności
+decyzje Komisji Europejskiej stwierdzające odpowiedni stopień ochrony,
+standardowe klauzule umowne albo inne mechanizmy przewidziane przez RODO.
+Dokładne role dostawców i podstawy transferu wymagają potwierdzenia przed
+publikacją.
+
+
+11. RETENCJA I USUWANIE
+
+Dane lokalne pozostają na urządzeniu do czasu ich usunięcia przez użytkownika,
+pełnego resetu danych Finapso, odinstalowania aplikacji albo wyczyszczenia jej
+danych w ustawieniach Androida.
+
+Nie każda operacja nazwana w interfejsie usunięciem oznacza obecnie natychmiastowe
+fizyczne usunięcie wszystkich powiązanych informacji. Niektóre elementy są
+archiwizowane. Usunięcie pliku paragonu może pozostawić w bazie surowy tekst
+OCR, pozycje i metadane do czasu pełnego resetu danych. Opis ten musi zostać
+ponownie zweryfikowany po zmianach technicznych przed wydaniem.
+
+Systemowa kopia Androida podlega zasadom i ustawieniom Google. Usunięcie danych
+z urządzenia nie musi powodować natychmiastowego usunięcia wcześniejszej kopii
+przechowywanej przez Google.
+
+Dla danych przesłanych do wsparcia planowane są następujące maksymalne okresy:
+
+1) obrazy paragonów i dane OCR — do 90 dni;
+
+2) treść zgłoszenia i dane kontaktowe — do rozwiązania sprawy, nie dłużej niż
+   180 dni;
+
+3) zanonimizowany opis problemu, który nie pozwala zidentyfikować użytkownika
+   — bez ograniczenia czasowego;
+
+4) dane potrzebne do wykonania obowiązków prawnych lub obrony roszczeń —
+   przez okres wynikający z właściwych przepisów.
+
+Okresy dotyczące wsparcia są propozycją i nie mogą zostać opublikowane, dopóki
+Administrator nie wdroży odpowiadającej im procedury czyszczenia skrzynki i
+załączników.
+
+Użytkownik może poprosić o wcześniejsze usunięcie danych przesłanych do
+wsparcia, pisząc na finapso.support@gmail.com. Administrator może poprosić o
+informacje potrzebne do odnalezienia wiadomości i potwierdzenia tożsamości
+wnioskodawcy.
+
+
+12. PRAWA UŻYTKOWNIKA
+
+W zakresie, w jakim Administrator przetwarza dane osobowe, użytkownik może —
+zależnie od podstawy i okoliczności przetwarzania — skorzystać z prawa:
+
+1) dostępu do danych i otrzymania ich kopii;
+
+2) sprostowania danych;
+
+3) usunięcia danych;
+
+4) ograniczenia przetwarzania;
+
+5) wniesienia sprzeciwu wobec przetwarzania opartego na prawnie uzasadnionym
+   interesie;
+
+6) przenoszenia danych, jeżeli spełnione są warunki przewidziane w RODO;
+
+7) wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.
+
+W celu wykonania praw należy napisać na finapso.support@gmail.com.
+
+Prawa te dotyczą danych znajdujących się pod kontrolą Administratora, na
+przykład wiadomości przesłanej do wsparcia. Administrator nie ma dostępu do
+danych zapisanych wyłącznie na urządzeniu ani do kopii kontrolowanej przez
+Google i nie może ich usunąć w imieniu użytkownika.
+
+Skargę można złożyć do:
+
+Prezes Urzędu Ochrony Danych Osobowych
+ul. Stanisława Moniuszki 1A
+00-014 Warszawa
+
+
+13. BRAK KONT UŻYTKOWNIKÓW
+
+Finapso nie umożliwia utworzenia konta użytkownika. Z tego powodu nie istnieje
+konto Finapso, którego usunięcia można zażądać.
+
+Użytkownik może zarządzać danymi lokalnymi za pomocą funkcji aplikacji,
+pełnego resetu danych Finapso, systemowej funkcji „Wyczyść dane” albo
+odinstalowania aplikacji. Dane dobrowolnie przesłane do wsparcia podlegają
+odrębnej procedurze opisanej w punkcie 11.
+
+
+14. BEZPIECZEŃSTWO
+
+Finapso korzysta z prywatnych katalogów aplikacji udostępnianych przez Androida.
+Połączenia formularza wsparcia i technicznej telemetrii Google są szyfrowane
+w tranzycie za pomocą HTTPS lub TLS.
+
+Administrator stosuje środki organizacyjne odpowiednie do obsługi korespondencji,
+w szczególności ogranicza dostęp do skrzynki i zabezpiecza używane konta oraz
+urządzenia. Nie można jednak zagwarantować absolutnego bezpieczeństwa danych.
+
+Przenośna kopia Finapso nie jest szyfrowana przez aplikację, a PIN nie stanowi
+pełnego szyfrowania danych. Użytkownik powinien zabezpieczyć urządzenie oraz
+wyeksportowane pliki przed dostępem osób nieuprawnionych.
+
+
+15. REKLAMY, ANALITYKA I STRONA INTERNETOWA
+
+Pierwsze wydanie Finapso opisane w tym projekcie nie wyświetla reklam. Dane
+finansowe, paragony, OCR, treść powiadomień, PIN i kopie nie są wykorzystywane
+do profilowania reklamowego ani przekazywane przez Administratora reklamodawcom.
+
+Finapso nie korzysta z Firebase Analytics, Google Analytics, Crashlytics ani
+zewnętrznego systemu automatycznego raportowania błędów do Administratora.
+Techniczna telemetria ML Kit została opisana w punkcie 4.
+
+Publiczna strona Finapso pod adresem
+https://bartmannn.github.io/finapso-legal/ jest statyczna. Finapso nie dodaje na
+niej analityki, reklam, trackerów, zewnętrznych fontów, formularzy sieciowych ani
+marketingowych plików cookies. Operator hostingu GitHub Pages może niezależnie
+przetwarzać standardowe dane techniczne połączenia zgodnie z własnymi zasadami.
+
+Mimo wyłączonych reklam biblioteki Google Mobile Ads i UMP są obecnie
+zapakowane w audytowanym wariancie produkcyjnym. Przed publikacją trzeba je
+usunąć z finalnego AAB albo potwierdzić testem ruchu, że nie inicjują połączeń
+i nie przetwarzają danych. W przeciwnym razie ten punkt oraz deklaracje Google
+Play wymagają aktualizacji.
+
+
+16. GOOGLE PLAY I SYSTEM ANDROID
+
+Aplikacja jest dystrybuowana za pośrednictwem Google Play. Google może jako
+odrębny administrator przetwarzać dane związane z kontem Google, pobraniem,
+instalacją, aktualizacją, bezpieczeństwem, statystykami sklepu, opiniami i
+działaniem systemu Android. Zakres tego przetwarzania wynika z usług wybranych
+przez użytkownika i zasad Google.
+
+Polityka prywatności Google jest dostępna pod adresem:
+
+https://policies.google.com/privacy
+
+
+17. ZMIANY POLITYKI
+
+Polityka może zostać zmieniona, jeżeli zmieni się prawo, sposób działania
+Finapso, zakres danych, użyte SDK, dostawcy albo kanały wsparcia.
+
+Bieżąca zatwierdzona wersja będzie udostępniana w aplikacji oraz pod stałym
+adresem:
+
+https://bartmannn.github.io/finapso-legal/privacy/
+
+Dokument otrzyma numer rewizji i datę obowiązywania dopiero po porównaniu z
+finalnym AAB oraz zatwierdzeniu do publikacji.
+
+
+18. KONTAKT KOŃCOWY
+
+Pytania dotyczące prywatności, danych przesłanych do wsparcia albo niniejszego
+dokumentu można kierować na adres:
+
+finapso.support@gmail.com
