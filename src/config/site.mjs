@@ -18,6 +18,10 @@ export const routes = Object.freeze({
   receipts: '/docs/receipts/',
   notifications: '/docs/notifications/',
   privacy: '/privacy/',
+  privacyArchive: '/privacy/archive/',
+  terms: '/terms/',
+  support: '/support/',
+  licenses: '/licenses/',
   routingCheck: '/docs/routing-check/',
 });
 

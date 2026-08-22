@@ -96,14 +96,14 @@ const structuredData = {
     <div class="card-grid">
       <Card>
         <h3><a href={withBase(routes.privacy)}>Polityka prywatności</a></h3>
-        <p>Bieżąca trasa jest jeszcze szkieletem roboczym i nie może zostać użyta w Google Play Console.</p>
+        <p>Bieżąca trasa jest demonstracyjnym szkicem i nie może zostać użyta w Google Play Console.</p>
       </Card>
       <Card>
-        <h3 id="terms-status">Warunki korzystania</h3>
-        <p>Dokument zostanie udostępniony pod osobnym adresem po przygotowaniu i przeglądzie w kolejnym zadaniu centrum prawnego.</p>
+        <h3><a href={withBase(routes.terms)}>Warunki korzystania</a></h3>
+        <p>Chroniony szkic struktury przyszłych warunków, bez zatwierdzonej treści prawnej.</p>
       </Card>
       <Card>
-        <h3><a href={`mailto:${siteConfig.supportEmail}?subject=Wsparcie%20Finapso`}>Wsparcie</a></h3>
+        <h3><a href={withBase(routes.support)}>Wsparcie</a></h3>
         <p>Kontakt w sprawach produktu i prywatności: {siteConfig.supportEmail}.</p>
       </Card>
       <Card>

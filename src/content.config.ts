@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 
 import { localMarkdownLoader } from './loaders/localMarkdown';
+import { legalDocumentSchema } from './content/legalSchema';
 
 const sharedMetadata = z.object({
   title: z.string().min(1),
@@ -81,19 +82,51 @@ const docs = defineCollection({
 const legal = defineCollection({
   loader: localMarkdownLoader('legal', [
     {
-      id: 'privacy-placeholder',
-      file: 'src/content/legal/privacy-placeholder.md',
+      id: 'privacy',
+      file: 'src/content/legal/privacy.md',
       data: {
-        title: 'Polityka prywatności — szkielet',
-        description: 'Techniczny wpis kontrolny dla przyszłej polityki prywatności Finapso.',
+        title: 'Polityka prywatności Finapso — szkic',
+        description: 'Demonstracyjny szablon przyszłej polityki prywatności aplikacji Finapso.',
+        productName: 'Finapso',
+        packageName: 'app.finapso.android',
+        status: 'DRAFT',
         updatedAt: '2026-08-22',
-        revision: 'foundation',
-        draft: true,
-        appVersion: null,
+        effectiveAt: null,
+        revision: 'DRAFT-ZAD5',
+        appVersion: '1.37.25',
+        changeHistory: [
+          {
+            revision: 'DRAFT-ZAD5',
+            date: '2026-08-22',
+            summary: 'Utworzenie chronionego szablonu bez zatwierdzonej treści prawnej.',
+          },
+        ],
+      },
+    },
+    {
+      id: 'terms',
+      file: 'src/content/legal/terms.md',
+      data: {
+        title: 'Warunki korzystania z Finapso — szkic',
+        description: 'Demonstracyjny szablon przyszłych warunków korzystania z aplikacji Finapso.',
+        productName: 'Finapso',
+        packageName: 'app.finapso.android',
+        status: 'DRAFT',
+        updatedAt: '2026-08-22',
+        effectiveAt: null,
+        revision: 'DRAFT-ZAD5',
+        appVersion: '1.37.25',
+        changeHistory: [
+          {
+            revision: 'DRAFT-ZAD5',
+            date: '2026-08-22',
+            summary: 'Utworzenie chronionego szablonu bez zatwierdzonej treści prawnej.',
+          },
+        ],
       },
     },
   ]),
-  schema: sharedMetadata,
+  schema: legalDocumentSchema,
 });
 
 export const collections = { docs, legal };

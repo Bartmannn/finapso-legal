@@ -1,0 +1,6 @@
+# NIE PUBLIKOWAĆ — niedeployowany przykład dla przyszłego security.txt Finapso.
+#
+# CONTACT-03 w docs/decisions/SITE_DECISIONS.md odkłada kontakt bezpieczeństwa.
+# Ten plik celowo nie zawiera prawidłowego pola Contact i nie jest kopiowany do
+# public/. Po potwierdzeniu obsługiwanego aliasu osobne zadanie powinno utworzyć
+# public/.well-known/security.txt zgodny z RFC 9116, z datą Expires i Canonical.

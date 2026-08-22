@@ -60,6 +60,10 @@ builda `SITE_ORIGIN=https://example.com` oraz `SITE_BASE=/`. Nie dodawaj pliku
 - `/finapso-legal/docs/receipts/`;
 - `/finapso-legal/docs/notifications/`;
 - `/finapso-legal/privacy/`;
+- `/finapso-legal/privacy/archive/`;
+- `/finapso-legal/terms/`;
+- `/finapso-legal/support/`;
+- `/finapso-legal/licenses/`;
 - `/finapso-legal/docs/routing-check/`.
 
 Strony produktowe i dokumentacja opisują aplikację w wersji `1.37.25`. Trasa
@@ -67,8 +71,10 @@ asystenta powiadomień ma status roboczy i `noindex, nofollow`, ponieważ funkcj
 oczekuje na odbiór publikacyjny w repozytorium aplikacji. Techniczna trasa
 `/docs/routing-check/` pozostaje nieindeksowanym fixture'em.
 
-Trasa `/privacy/` nadal jest szkieletem technicznym z `noindex, nofollow` i nie
-może jeszcze zostać podpięta w Google Play Console.
+Całe centrum prawne pozostaje demonstracyjnym szkicem `DRAFT` z
+`noindex, nofollow`. Polityka i warunki zawierają jawnie oznaczone lorem ipsum,
+dlatego `/privacy/` nie może jeszcze zostać podpięte w Google Play Console.
+Archiwum jest puste i nie tworzy fikcyjnych wcześniejszych rewizji.
 
 ## Treść
 
@@ -88,7 +94,12 @@ indeksowania i braku wykonywalnego JavaScriptu uruchamia:
 
 ```text
 npm run check:product-pages
+npm run check:legal-center
 ```
+
+Druga kontrola wymaga wcześniejszego `npm run build`. Sprawdza ochronę szkicu,
+statusy i metadane dokumentów, kotwice, brak wykonywalnego JavaScriptu,
+wewnętrzne linki oraz brak publicznego `security.txt`.
 
 ## GitHub Actions i publikacja
 
@@ -106,5 +117,9 @@ pustą zawartość.
 Strona nie używa analityki, reklam, trackerów, cookies, zewnętrznych fontów ani
 formularzy sieciowych. Dokumenty `.txt` w katalogu głównym są materiałami do
 późniejszego audytu i nie są automatycznie publikowane.
+
+Kontakt bezpieczeństwa pozostaje odłożony. Niedeployowany plik
+`docs/examples/security.txt.disabled.example` dokumentuje bezpieczny punkt
+startowy, ale nie jest prawidłowym ani publicznym `security.txt`.
 
 Szczegółowy zakres i bramki znajdują się w [`PLAN.md`](PLAN.md).

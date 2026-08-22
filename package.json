@@ -12,6 +12,7 @@
     "dev": "node --env-file=config/astro.env ./node_modules/astro/bin/astro.mjs dev",
     "check": "node --env-file=config/astro.env ./node_modules/astro/bin/astro.mjs check",
     "build": "node --env-file=config/astro.env ./node_modules/astro/bin/astro.mjs build",
+    "check:legal-center": "node scripts/check-legal-center.mjs",
     "check:product-pages": "node scripts/check-product-pages.mjs",
     "preview": "node --env-file=config/astro.env ./node_modules/astro/bin/astro.mjs preview"
   },

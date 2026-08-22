@@ -11,8 +11,9 @@ import { routes, siteConfig, withBase } from '../config/site.mjs';
     <nav aria-label="Nawigacja w stopce">
       <ul class="footer-nav">
         <li><a href={withBase(routes.privacy)}>Prywatność</a></li>
-        <li><a href={withBase('/#terms-status')}>Warunki korzystania</a></li>
-        <li><a href={`mailto:${siteConfig.supportEmail}?subject=Wsparcie%20Finapso`}>Wsparcie</a></li>
+        <li><a href={withBase(routes.terms)}>Warunki korzystania</a></li>
+        <li><a href={withBase(routes.support)}>Wsparcie</a></li>
+        <li><a href={withBase(routes.licenses)}>Licencje</a></li>
       </ul>
     </nav>
     <p class="footer-meta">© {new Date().getFullYear()} Bartosz Bohdziewicz. Wszystkie prawa zastrzeżone.</p>

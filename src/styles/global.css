@@ -417,6 +417,54 @@ select {
   font-weight: 650;
 }
 
+.document-metadata code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+.document-status {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.75rem;
+  padding-inline: var(--space-2);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-surface-muted);
+}
+
+.document-status-draft {
+  border-color: var(--color-error);
+  background: var(--color-error-surface);
+  color: var(--color-on-error-surface);
+}
+
+.change-history {
+  max-width: var(--container-text);
+  margin-block: 0 var(--space-10);
+  padding: var(--space-5);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+}
+
+.change-history h2 {
+  margin-block-end: var(--space-3);
+  font-size: var(--text-base);
+}
+
+.change-history ol {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding-inline-start: var(--space-6);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.document-main :where(h2, h3)[id] {
+  scroll-margin-top: calc(var(--header-height) + var(--space-6));
+}
+
 .card-grid {
   display: grid;
   gap: var(--space-4);
@@ -743,6 +791,12 @@ select {
   .callout {
     background: transparent;
     box-shadow: none;
+    break-inside: avoid;
+  }
+
+  .change-history {
+    padding: var(--space-4);
+    background: transparent;
     break-inside: avoid;
   }
 

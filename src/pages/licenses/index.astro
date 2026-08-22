@@ -1,0 +1,45 @@
+---
+import { routes, withBase } from '../../config/site.mjs';
+import type { LegalChange } from '../../content/legalSchema';
+import LegalLayout from '../../layouts/LegalLayout.astro';
+
+const updatedAt = new Date('2026-08-22T00:00:00Z');
+const changeHistory: LegalChange[] = [{
+  revision: 'DRAFT-ZAD5',
+  date: updatedAt,
+  summary: 'Utworzenie chronionego miejsca na przyszły wykaz licencji.',
+}];
+---
+
+<LegalLayout
+  title="Licencje Finapso — szkic"
+  description="Demonstracyjna strona przyszłych informacji o licencjach Finapso i użytych komponentów."
+  revision="DRAFT-ZAD5"
+  updatedAt={updatedAt}
+  effectiveAt={null}
+  packageName="app.finapso.android"
+  status="DRAFT"
+  changeHistory={changeHistory}
+  appVersion="1.37.25"
+>
+  <h2 id="status-wykazu">Status wykazu</h2>
+  <p>
+    Pełny, zatwierdzony wykaz licencji aplikacji i strony nie został jeszcze
+    opublikowany. Ta strona rezerwuje dla niego osobny, stabilny adres i nie
+    udaje kompletnej informacji licencyjnej.
+  </p>
+
+  <h2 id="zakres">Planowany zakres</h2>
+  <p>
+    Finalna wersja rozdzieli informacje dotyczące aplikacji Finapso, zasobów
+    marki oraz bibliotek i komponentów udostępnianych na odrębnych licencjach.
+    Każda pozycja będzie oparta na inwentaryzacji faktycznie dystrybuowanego
+    wydania.
+  </p>
+
+  <h2 id="kontakt-licencje">Pytania o licencje</h2>
+  <p>
+    Do czasu zatwierdzenia wykazu pytania można kierować przez stronę
+    <a href={withBase(routes.support)}>wsparcia Finapso</a>.
+  </p>
+</LegalLayout>

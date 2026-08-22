@@ -3,10 +3,10 @@ import { getEntry, render } from 'astro:content';
 
 import LegalLayout from '../../layouts/LegalLayout.astro';
 
-const entry = await getEntry('legal', 'privacy');
+const entry = await getEntry('legal', 'terms');
 
 if (!entry) {
-  throw new Error('Brak technicznego wpisu kolekcji dla trasy /privacy/.');
+  throw new Error('Brak wpisu kolekcji dla trasy /terms/.');
 }
 
 const { Content, headings } = await render(entry);
@@ -24,5 +24,5 @@ const { Content, headings } = await render(entry);
   changeHistory={entry.data.changeHistory}
   appVersion={entry.data.appVersion}
 >
-    <Content />
+  <Content />
 </LegalLayout>
