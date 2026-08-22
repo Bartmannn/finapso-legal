@@ -1,0 +1,39 @@
+---
+import { siteConfig, withBase } from '../config/site.mjs';
+import '../styles/foundation.css';
+
+interface Props {
+  title: string;
+  description: string;
+  draft?: boolean;
+}
+
+const { title, description, draft = false } = Astro.props;
+const documentTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? siteConfig.publicUrl);
+---
+
+<!doctype html>
+<html lang={siteConfig.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    {draft && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalUrl} />
+    <title>{documentTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Przejdź do treści</a>
+    <header class="site-header">
+      <a class="site-name" href={withBase('/')}>{siteConfig.name}</a>
+    </header>
+    <main id="content" class="page-shell">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>Szkielet techniczny strony Finapso.</p>
+    </footer>
+  </body>
+</html>

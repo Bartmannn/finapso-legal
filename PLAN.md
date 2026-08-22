@@ -2,7 +2,7 @@
 
 Status: `PLANNED`
 
-Ostatnia aktualizacja: 2026-08-21
+Ostatnia aktualizacja: 2026-08-22
 
 ## Cel
 
@@ -117,7 +117,7 @@ ukończenia, pozostawiając modelowi wybór najprostszego poprawnego rozwiązani
 | ID | Zadanie | Status | Zależności | Plan |
 | --- | --- | --- | --- | --- |
 | ZAD1 | Decyzje właściciela i kontrakt treści | `COMPLETED` | — | [ZAD1](docs/tasks/ZAD1-decisions-and-content-contract.md) |
-| ZAD2 | Fundament statycznego serwisu | `PLANNED` | — | [ZAD2](docs/tasks/ZAD2-static-site-foundation.md) |
+| ZAD2 | Fundament statycznego serwisu | `COMPLETED` | — | [ZAD2](docs/tasks/ZAD2-static-site-foundation.md) |
 | ZAD3 | Design system i wspólne layouty | `PLANNED` | ZAD2 | [ZAD3](docs/tasks/ZAD3-design-system-and-layouts.md) |
 | ZAD4 | Strony produktowe i dokumentacja | `PLANNED` | ZAD3 | [ZAD4](docs/tasks/ZAD4-product-pages-and-documentation.md) |
 | ZAD5 | Szablon publicznego centrum prawnego | `PLANNED` | ZAD3 | [ZAD5](docs/tasks/ZAD5-legal-center-template.md) |

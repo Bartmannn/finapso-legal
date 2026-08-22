@@ -1,0 +1,21 @@
+---
+import { routes, siteConfig, withBase } from '../config/site.mjs';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title={siteConfig.title} description={siteConfig.description} draft>
+  <article>
+    <p class="eyebrow">Fundament serwisu</p>
+    <h1>Finapso</h1>
+    <p>
+      To techniczny szkielet wielostronicowej witryny. Docelowy wygląd i treść
+      powstaną w kolejnych zadaniach.
+    </p>
+    <nav aria-label="Trasy kontrolne">
+      <ul>
+        <li><a href={withBase(routes.privacy)}>Szkielet polityki prywatności</a></li>
+        <li><a href={withBase(routes.routingCheck)}>Kontrola zagnieżdżonej trasy</a></li>
+      </ul>
+    </nav>
+  </article>
+</BaseLayout>
