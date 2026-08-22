@@ -155,14 +155,21 @@ Pełne mapowanie wymagania na test i komunikat błędu znajduje się w
 
 Workflow `.github/workflows/build-pages.yml` instaluje zależności z lockfile,
 instaluje Chromium, uruchamia dokładnie `npm test` i zapisuje sprawdzony artefakt
-GitHub Pages. Wszystkie akcje są przypięte do pełnych SHA, token ma tylko
-`contents: read`, a Dependabot proponuje małe aktualizacje npm i Actions raz w
-tygodniu. Celowo nie ma joba `deploy`, uprawnienia `pages: write` ani
-`id-token: write`, więc sam workflow nie publikuje witryny.
+GitHub Pages. Po udanym buildzie dla `main` albo ręcznym uruchomieniu osobny job
+publikuje ten sam artefakt do chronionego środowiska `github-pages`. Pull requesty
+są wyłącznie testowane i nigdy nie uruchamiają publikacji.
 
-Publikacja, zmiana ustawień GitHub Pages oraz `push` są osobnym, autoryzowanym
-etapem. Do tego czasu bieżąca strona publiczna może nadal wskazywać starszą albo
-pustą zawartość.
+Job budujący ma tylko `contents: read`, natomiast job publikacyjny otrzymuje
+wyłącznie wymagane `pages: write` i `id-token: write`. Wszystkie akcje są
+przypięte do pełnych SHA, a Dependabot proponuje małe aktualizacje npm i Actions
+raz w tygodniu.
+
+Przed pierwszym wdrożeniem w repozytorium GitHub wybierz `Settings → Pages →
+Build and deployment → Source: GitHub Actions`. Po wykonanym przez właściciela
+`push` do `main` wynik będzie dostępny pod adresem
+`https://bartmannn.github.io/finapso-legal/`. Publikowany obecnie artefakt nadal
+jest bezpiecznym podglądem: strony prawne zachowują `DRAFT`, ostrzeżenie i
+`noindex, nofollow`, dopóki nie przejdą bramki finalnej treści.
 
 ## Granice prywatności strony
 

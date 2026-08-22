@@ -22,18 +22,19 @@ Actions. Lighthouse pozostaje osobnym pomiarem podatnym na środowisko.
 | Mobilna nawigacja, 320 px i 44 px | Playwright | wymagane | wymagane | asercja wymiaru |
 | Brak zewnętrznych żądań i fontów | audyt statyczny i Playwright | wymagane | wymagane | `[external-resource]` |
 | Sekrety i prywatne formaty | `assertSourceSafety` | wymagane | wymagane | `[secret-scan]`, `[private-file]` |
+| Minimalne uprawnienia publikacji Pages | `assertWorkflowSafety` | wymagane | wymagane | `[workflow-permissions]`, `[workflow-deploy-guard]` |
 | CSS gzip ≤ 50 KiB, JS ≤ 10 KiB | `assertBudgets` | wymagane | wymagane | `[resource-budget]` |
 | CLS < 0,1 | Playwright lokalnego artefaktu | wymagane | wymagane | asercja CLS |
 | Wersja źródła w artefakcie | `build-meta.json` | wymagane | wymagane | `[build-meta]` |
-| Skuteczność trzech krytycznych bramek | `npm run test:negative` | wymagane | wymagane | brak oczekiwanego błędu fixture |
+| Skuteczność czterech krytycznych bramek | `npm run test:negative` | wymagane | wymagane | brak oczekiwanego błędu fixture |
 | Lighthouse 95 / LCP < 2,5 s / CLS < 0,1 | `npm run audit:lighthouse` | raport | raport | `DO PRZEGLĄDU`, bez niestabilnego progu CI |
 
 ## Kontrolowane przypadki negatywne
 
 Fixtures w `tests/fixtures/negative-gates.json` nigdy nie są kopiowane do
 `dist/`. Udowadniają wykrycie lorem ipsum w produkcji, uszkodzonego linku
-wewnętrznego oraz zewnętrznego skryptu. Test korzysta z tych samych funkcji co
-audyt prawdziwego artefaktu.
+wewnętrznego, zewnętrznego skryptu oraz zbyt szerokich uprawnień workflow.
+Test korzysta z tych samych funkcji co audyt prawdziwego artefaktu.
 
 ## Źródła narzędzi
 

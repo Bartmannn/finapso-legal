@@ -157,6 +157,56 @@ async function listFiles(root) {
   return files;
 }
 
+export function assertWorkflowSafety(workflow) {
+  const uses = [...workflow.matchAll(/uses:\s*[^@\s]+@([^\s#]+)/g)].map((match) => match[1]);
+  if (uses.length === 0 || uses.some((reference) => !/^[0-9a-f]{40}$/.test(reference))) {
+    fail('[workflow-pin] każda zewnętrzna akcja musi używać pełnego SHA');
+  }
+
+  const globalPermissions = workflow.match(/^permissions:\s*\r?\n((?: {2}[^\r\n]+\r?\n?)*)/m)?.[1]
+    ?.trim()
+    .split(/\r?\n/)
+    .map((line) => line.trim()) ?? [];
+  if (globalPermissions.length !== 1 || globalPermissions[0] !== 'contents: read') {
+    fail('[workflow-permissions] globalne uprawnienia muszą ograniczać się do contents: read');
+  }
+
+  const lines = workflow.split(/\r?\n/);
+  const deployStart = lines.findIndex((line) => line === '  deploy:');
+  const deployEnd = deployStart < 0
+    ? -1
+    : lines.findIndex((line, index) => index > deployStart && /^  [a-zA-Z0-9_-]+:\s*$/.test(line));
+  const deployJob = deployStart < 0
+    ? ''
+    : lines.slice(deployStart, deployEnd < 0 ? undefined : deployEnd).join('\n');
+
+  if (!deployJob) fail('[workflow-deploy] brak osobnego joba deploy');
+  if (!/^    if: github\.event_name != 'pull_request'$/m.test(deployJob) || !/^    needs: build$/m.test(deployJob)) {
+    fail('[workflow-deploy-guard] publikacja musi zależeć od builda i pomijać pull requesty');
+  }
+
+  const deployPermissions = deployJob.match(/^    permissions:\s*\n((?: {6}[^\n]+\n?)*)/m)?.[1]
+    ?.trim()
+    .split('\n')
+    .map((line) => line.trim())
+    .sort() ?? [];
+  if (deployPermissions.join('|') !== ['id-token: write', 'pages: write'].sort().join('|')) {
+    fail('[workflow-permissions] deploy może mieć wyłącznie pages: write i id-token: write');
+  }
+
+  const writes = [...workflow.matchAll(/^\s+([a-zA-Z0-9_-]+):\s*write\s*$/gm)]
+    .map((match) => match[1])
+    .sort();
+  if (writes.join('|') !== ['id-token', 'pages'].sort().join('|')) {
+    fail('[workflow-permissions] wykryto dodatkowe uprawnienia zapisu');
+  }
+  if (!/^      - name: Deploy GitHub Pages artifact$/m.test(deployJob)
+      || !/^        id: deployment$/m.test(deployJob)
+      || !/^        uses: actions\/deploy-pages@[0-9a-f]{40}(?:\s+#.*)?$/m.test(deployJob)) {
+    fail('[workflow-deploy] job deploy nie używa przypiętej akcji actions/deploy-pages');
+  }
+}
+
 async function assertSourceSafety() {
   const publicationRoots = ['public', 'src', 'scripts', 'tests', 'config', '.github']
     .map((directory) => path.join(workspaceRoot, directory));
@@ -183,13 +233,7 @@ async function assertSourceSafety() {
   }
 
   const workflow = await readFile(path.join(workspaceRoot, '.github', 'workflows', 'build-pages.yml'), 'utf8');
-  const uses = [...workflow.matchAll(/uses:\s*[^@\s]+@([^\s#]+)/g)].map((match) => match[1]);
-  if (uses.length === 0 || uses.some((reference) => !/^[0-9a-f]{40}$/.test(reference))) {
-    fail('[workflow-pin] każda zewnętrzna akcja musi używać pełnego SHA');
-  }
-  if (!/^permissions:\s*\r?\n\s+contents:\s*read\s*$/m.test(workflow) || /(?:pages|id-token):\s*write/.test(workflow)) {
-    fail('[workflow-permissions] workflow nie ma minimalnych uprawnień tylko do odczytu');
-  }
+  assertWorkflowSafety(workflow);
 }
 
 async function assertSitemap(contract) {

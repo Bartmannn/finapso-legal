@@ -19,5 +19,11 @@
     "route": "/",
     "html": "<!doctype html><html lang=\"pl\"><body><main><h1>Start</h1><script src=\"https://tracker.example/collect.js\"></script></main></body></html>",
     "expected": "[external-resource] /: https://tracker.example/collect.js"
+  },
+  {
+    "id": "overprivileged-pages-deploy",
+    "gate": "workflowSafety",
+    "workflow": "name: Unsafe deploy\non:\n  push:\npermissions:\n  contents: read\n  pages: write\njobs:\n  build:\n    runs-on: ubuntu-latest\n    steps:\n      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803\n  deploy:\n    if: github.event_name != 'pull_request'\n    needs: build\n    permissions:\n      pages: write\n      id-token: write\n    steps:\n      - name: Deploy GitHub Pages artifact\n        id: deployment\n        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128\n",
+    "expected": "[workflow-permissions] globalne uprawnienia"
   }
 ]

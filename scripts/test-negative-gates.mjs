@@ -5,6 +5,7 @@ import {
   assertInternalLinks,
   assertProductionLegal,
   assertResourceOrigins,
+  assertWorkflowSafety,
 } from './lib/site-audit.mjs';
 
 const fixtures = JSON.parse(
@@ -24,6 +25,8 @@ for (const fixture of fixtures) {
         exists: async () => false,
         targetHtml: '',
       });
+    } else if (fixture.gate === 'workflowSafety') {
+      assertWorkflowSafety(fixture.workflow);
     } else {
       throw new Error(`Nieznana bramka fixture: ${fixture.gate}`);
     }
