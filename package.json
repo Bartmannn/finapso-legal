@@ -38,7 +38,7 @@
     "@types/node": "24.13.3",
     "html-validate": "11.6.2",
     "lighthouse": "13.4.1",
-    "typescript": "6.0.3"
+    "typescript": "7.0.2"
   },
   "optionalDependencies": {
     "sharp": "0.35.3"
