@@ -9,9 +9,16 @@ interface Props {
   description: string;
   draft?: boolean;
   pageKind?: 'default' | 'docs' | 'legal';
+  structuredData?: Record<string, unknown>;
 }
 
-const { title, description, draft = false, pageKind = 'default' } = Astro.props;
+const {
+  title,
+  description,
+  draft = false,
+  pageKind = 'default',
+  structuredData,
+} = Astro.props;
 const documentTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? siteConfig.publicUrl);
 const openGraphImage = new URL(withBase('/brand/finapso-og.svg'), Astro.site ?? siteConfig.publicUrl);
@@ -33,7 +40,11 @@ const openGraphImage = new URL(withBase('/brand/finapso-og.svg'), Astro.site ?? 
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={openGraphImage} />
+    <meta property="og:image:alt" content="Znak aplikacji Finapso na zielonym tle" />
     {draft && <meta name="robots" content="noindex, nofollow" />}
+    {structuredData && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )}
     <link rel="icon" href={withBase('/brand/finapso-icon.webp')} type="image/webp" />
     <link rel="canonical" href={canonicalUrl} />
     <title>{documentTitle}</title>

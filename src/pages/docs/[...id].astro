@@ -29,9 +29,12 @@ const { Content, headings } = await render(entry);
   draft={entry.data.draft}
   updatedAt={entry.data.updatedAt}
   revision={entry.data.revision}
+  appVersion={entry.data.appVersion}
 >
-    <Callout title="Strona demonstracyjna" variant="warning">
-      <p>Ten materiał testuje wspólny layout dokumentacji. Nie jest jeszcze instrukcją użytkownika.</p>
-    </Callout>
+    {entry.data.draft && (
+      <Callout title="Materiał roboczy" variant="warning">
+        <p>Ta strona opisuje stan wymagający dalszego odbioru i nie powinna być traktowana jako instrukcja dostępnej funkcji.</p>
+      </Callout>
+    )}
     <Content />
 </DocsLayout>

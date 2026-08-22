@@ -50,15 +50,25 @@ Przyszłą własną domenę można sprawdzić bez zmiany treści, ustawiając po
 builda `SITE_ORIGIN=https://example.com` oraz `SITE_BASE=/`. Nie dodawaj pliku
 `CNAME` bez osobnej decyzji właściciela.
 
-## Trasy kontrolne ZAD2
+## Trasy serwisu
 
 - `/finapso-legal/`;
+- `/finapso-legal/features/`;
+- `/finapso-legal/docs/`;
+- `/finapso-legal/docs/getting-started/`;
+- `/finapso-legal/docs/data-and-backups/`;
+- `/finapso-legal/docs/receipts/`;
+- `/finapso-legal/docs/notifications/`;
 - `/finapso-legal/privacy/`;
 - `/finapso-legal/docs/routing-check/`.
 
-Są to szkielety techniczne, a nie finalna prezentacja ani dokumenty prawne.
-Trasa `/privacy/` ma `noindex, nofollow` i nie może jeszcze zostać podpięta w
-Google Play Console.
+Strony produktowe i dokumentacja opisują aplikację w wersji `1.37.25`. Trasa
+asystenta powiadomień ma status roboczy i `noindex, nofollow`, ponieważ funkcja
+oczekuje na odbiór publikacyjny w repozytorium aplikacji. Techniczna trasa
+`/docs/routing-check/` pozostaje nieindeksowanym fixture'em.
+
+Trasa `/privacy/` nadal jest szkieletem technicznym z `noindex, nofollow` i nie
+może jeszcze zostać podpięta w Google Play Console.
 
 ## Treść
 
@@ -67,6 +77,18 @@ Metadane oraz przypisanie plików do typowanych kolekcji są rejestrowane w
 `src/content.config.ts`. Lokalny loader używa oficjalnego Content Loader API i
 wbudowanego renderera Markdown Astro; dodanie dokumentu wymaga dodania pliku i
 odpowiadającego mu wpisu metadanych.
+
+Każdy artykuł użytkowy podaje rewizję, datę aktualizacji i wersję aplikacji.
+Źródła twierdzeń oraz mapowanie trasa–odbiorca–pytanie–CTA są zapisane w
+`docs/content/PRODUCT_CONTENT_MATRIX.md`. Przed zmianą opisu funkcji należy
+ponownie sprawdzić aplikację i zaktualizować tę macierz.
+
+Po zbudowaniu strony kontrolę tras, canonical, Open Graph, linków, statusu
+indeksowania i braku wykonywalnego JavaScriptu uruchamia:
+
+```text
+npm run check:product-pages
+```
 
 ## GitHub Actions i publikacja
 

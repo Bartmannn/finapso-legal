@@ -335,8 +335,24 @@ select {
   font-size: 0.9em;
 }
 
+.prose blockquote {
+  padding: var(--space-4) var(--space-5);
+  border-inline-start: 0.3rem solid var(--color-brand);
+  border-radius: var(--radius-sm);
+  background: var(--color-brand-soft);
+  color: var(--color-on-brand-soft);
+}
+
+.prose strong {
+  color: var(--color-text);
+}
+
 .prose a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
   overflow-wrap: anywhere;
+  vertical-align: middle;
 }
 
 .table-of-contents {
@@ -421,6 +437,12 @@ select {
 .card h2,
 .card h3 {
   font-size: var(--text-xl);
+}
+
+.card :is(h2, h3) a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
 }
 
 .card p {
@@ -508,6 +530,75 @@ select {
   font-size: var(--text-lg);
 }
 
+.hero-home {
+  max-width: 52rem;
+}
+
+.availability-note {
+  max-width: 70ch;
+  padding-block-start: var(--space-2);
+  border-block-start: 1px solid var(--color-border-subtle);
+  font-size: var(--text-sm) !important;
+}
+
+.section-block {
+  display: grid;
+  gap: var(--space-6);
+  margin-block-start: clamp(var(--space-16), 9vw, var(--space-20));
+  scroll-margin-top: calc(var(--header-height) + var(--space-6));
+}
+
+.section-heading {
+  display: grid;
+  gap: var(--space-3);
+  max-width: var(--container-text);
+}
+
+.section-heading > p:not(.eyebrow),
+.next-step p {
+  color: var(--color-text-muted);
+}
+
+.split-panel {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+.split-panel > .prose {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.next-step {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+  margin-block-start: var(--space-16);
+  padding: clamp(var(--space-6), 5vw, var(--space-10));
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+
+.next-step > div {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.next-step .button {
+  width: fit-content;
+}
+
+.status-label {
+  color: var(--color-on-warning-surface) !important;
+  font-size: var(--text-xs);
+  font-weight: 750;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
 @media (min-width: 40rem) {
   .header-inner {
     grid-template-columns: auto 1fr;
@@ -530,6 +621,15 @@ select {
 
   .footer-meta {
     grid-column: 1 / -1;
+  }
+
+  .split-panel,
+  .next-step {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .next-step {
+    grid-template-columns: minmax(0, 1fr) auto;
   }
 }
 

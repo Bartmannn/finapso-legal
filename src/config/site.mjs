@@ -11,6 +11,12 @@ export const siteConfig = Object.freeze({
 
 export const routes = Object.freeze({
   home: '/',
+  features: '/features/',
+  docs: '/docs/',
+  gettingStarted: '/docs/getting-started/',
+  dataAndBackups: '/docs/data-and-backups/',
+  receipts: '/docs/receipts/',
+  notifications: '/docs/notifications/',
   privacy: '/privacy/',
   routingCheck: '/docs/routing-check/',
 });

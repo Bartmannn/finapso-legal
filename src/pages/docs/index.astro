@@ -1,0 +1,69 @@
+---
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Card from '../../components/Card.astro';
+import { routes, withBase } from '../../config/site.mjs';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const articles = [
+  {
+    href: routes.gettingStarted,
+    title: 'Pierwsze kroki',
+    description: 'Utwórz budżet i zapisz pierwszą transakcję.',
+  },
+  {
+    href: routes.dataAndBackups,
+    title: 'Dane i kopie',
+    description: 'Wyeksportuj, sprawdź i przywróć pełną kopię danych.',
+  },
+  {
+    href: routes.receipts,
+    title: 'Paragony i OCR',
+    description: 'Zaimportuj dokument i popraw lokalny odczyt przed zapisem.',
+  },
+  {
+    href: routes.notifications,
+    title: 'Asystent powiadomień — status',
+    description: 'Sprawdź ograniczenia i warunki pozostałe przed wydaniem funkcji.',
+    status: 'Materiał roboczy',
+  },
+];
+---
+
+<BaseLayout
+  title="Dokumentacja"
+  description="Instrukcje korzystania z Finapso, oparte na zachowaniu aplikacji w wersji 1.37.25."
+  pageKind="docs"
+>
+  <Breadcrumbs items={[
+    { label: 'Strona główna', href: withBase(routes.home) },
+    { label: 'Dokumentacja' },
+  ]} />
+
+  <header class="page-header">
+    <p class="eyebrow">Finapso 1.37.25</p>
+    <h1>Dokumentacja użytkowa</h1>
+    <p class="page-lead">
+      Krótkie instrukcje do konkretnych zadań. Każdy artykuł podaje ograniczenia,
+      datę aktualizacji i wersję aplikacji, której dotyczy.
+    </p>
+  </header>
+
+  <div class="card-grid docs-index" aria-label="Artykuły dokumentacji">
+    {articles.map((article) => (
+      <Card>
+        {article.status && <p class="status-label">{article.status}</p>}
+        <h2><a href={withBase(article.href)}>{article.title}</a></h2>
+        <p>{article.description}</p>
+      </Card>
+    ))}
+  </div>
+
+  <section class="next-step" aria-labelledby="docs-help-title">
+    <div>
+      <p class="eyebrow">Nie znalazłeś odpowiedzi?</p>
+      <h2 id="docs-help-title">Napisz do wsparcia</h2>
+      <p>Nie dołączaj danych finansowych ani paragonów, jeśli nie są potrzebne do rozwiązania problemu.</p>
+    </div>
+    <a class="button button-secondary" href="mailto:finapso.support@gmail.com?subject=Wsparcie%20Finapso">finapso.support@gmail.com</a>
+  </section>
+</BaseLayout>
