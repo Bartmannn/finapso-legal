@@ -1,0 +1,48 @@
+---
+import { routes, siteConfig, withBase } from '../config/site.mjs';
+
+interface Props {
+  currentPath: string;
+}
+
+const { currentPath } = Astro.props;
+const navigation = [
+  { href: routes.home, label: 'Strona główna' },
+  { href: routes.routingCheck, label: 'Dokumentacja' },
+  { href: routes.privacy, label: 'Prywatność' },
+];
+
+function isCurrent(href: string) {
+  return currentPath === withBase(href);
+}
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand-link" href={withBase(routes.home)} aria-label={`${siteConfig.name} — strona główna`}>
+      <img
+        class="brand-icon"
+        src={withBase('/brand/finapso-icon.webp')}
+        width="192"
+        height="192"
+        alt=""
+      />
+      <span>{siteConfig.name}</span>
+    </a>
+    <nav aria-label="Główna nawigacja">
+      <ul class="site-nav-list">
+        {navigation.map((item) => (
+          <li>
+            <a
+              class="site-nav-link"
+              href={withBase(item.href)}
+              aria-current={isCurrent(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

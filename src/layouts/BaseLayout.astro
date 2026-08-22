@@ -1,16 +1,20 @@
 ---
 import { siteConfig, withBase } from '../config/site.mjs';
-import '../styles/foundation.css';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
   draft?: boolean;
+  pageKind?: 'default' | 'docs' | 'legal';
 }
 
-const { title, description, draft = false } = Astro.props;
+const { title, description, draft = false, pageKind = 'default' } = Astro.props;
 const documentTitle = title === siteConfig.name ? title : `${title} | ${siteConfig.name}`;
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? siteConfig.publicUrl);
+const openGraphImage = new URL(withBase('/brand/finapso-og.svg'), Astro.site ?? siteConfig.publicUrl);
 ---
 
 <!doctype html>
@@ -20,20 +24,28 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? siteConfig.public
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#f4f6f4" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121613" media="(prefers-color-scheme: dark)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pl_PL" />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:title" content={documentTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={openGraphImage} />
     {draft && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="icon" href={withBase('/brand/finapso-icon.webp')} type="image/webp" />
     <link rel="canonical" href={canonicalUrl} />
     <title>{documentTitle}</title>
   </head>
-  <body>
-    <a class="skip-link" href="#content">Przejdź do treści</a>
-    <header class="site-header">
-      <a class="site-name" href={withBase('/')}>{siteConfig.name}</a>
-    </header>
-    <main id="content" class="page-shell">
-      <slot />
+  <body class={`page-${pageKind}`}>
+    <a class="skip-link" href="#main-content">Pomiń nawigację i przejdź do treści</a>
+    <SiteHeader currentPath={Astro.url.pathname} />
+    <main id="main-content" class="page-shell" tabindex="-1">
+      <div class="container">
+        <slot />
+      </div>
     </main>
-    <footer class="site-footer">
-      <p>Szkielet techniczny strony Finapso.</p>
-    </footer>
+    <SiteFooter />
   </body>
 </html>

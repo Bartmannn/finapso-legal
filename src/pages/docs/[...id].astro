@@ -2,7 +2,8 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import Callout from '../../components/Callout.astro';
+import DocsLayout from '../../layouts/DocsLayout.astro';
 
 export async function getStaticPaths() {
   const entries = await getCollection('docs');
@@ -18,13 +19,19 @@ interface Props {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+const { Content, headings } = await render(entry);
 ---
 
-<BaseLayout title={entry.data.title} description={entry.data.description} draft={entry.data.draft}>
-  <article>
-    <p class="eyebrow">Trasa kontrolna</p>
-    <h1>{entry.data.title}</h1>
+<DocsLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  headings={headings}
+  draft={entry.data.draft}
+  updatedAt={entry.data.updatedAt}
+  revision={entry.data.revision}
+>
+    <Callout title="Strona demonstracyjna" variant="warning">
+      <p>Ten materiał testuje wspólny layout dokumentacji. Nie jest jeszcze instrukcją użytkownika.</p>
+    </Callout>
     <Content />
-  </article>
-</BaseLayout>
+</DocsLayout>

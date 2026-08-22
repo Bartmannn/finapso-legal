@@ -1,0 +1,54 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import { routes, withBase } from '../config/site.mjs';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  headings?: MarkdownHeading[];
+  draft?: boolean;
+  updatedAt?: Date;
+  revision?: string;
+}
+
+const {
+  title,
+  description,
+  headings = [],
+  draft = false,
+  updatedAt,
+  revision,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} draft={draft} pageKind="docs">
+  <Breadcrumbs items={[
+    { label: 'Strona główna', href: withBase(routes.home) },
+    { label: 'Dokumentacja', href: withBase(routes.routingCheck) },
+    { label: title },
+  ]} />
+  <header class="page-header">
+    <p class="eyebrow">Dokumentacja</p>
+    <h1>{title}</h1>
+    <p class="page-lead">{description}</p>
+    {(updatedAt || revision) && (
+      <dl class="document-metadata">
+        {revision && <div><dt>Rewizja</dt><dd>{revision}</dd></div>}
+        {updatedAt && (
+          <div>
+            <dt>Aktualizacja</dt>
+            <dd><time datetime={updatedAt.toISOString()}>{updatedAt.toLocaleDateString('pl-PL')}</time></dd>
+          </div>
+        )}
+      </dl>
+    )}
+  </header>
+  <div class="document-grid">
+    <div class="document-main prose"><slot /></div>
+    <TableOfContents headings={headings} />
+  </div>
+</BaseLayout>

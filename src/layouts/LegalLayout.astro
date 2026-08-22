@@ -1,0 +1,58 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Callout from '../components/Callout.astro';
+import TableOfContents from '../components/TableOfContents.astro';
+import { routes, withBase } from '../config/site.mjs';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  headings?: MarkdownHeading[];
+  revision: string;
+  updatedAt: Date;
+  appVersion?: string | null;
+  draft?: boolean;
+}
+
+const {
+  title,
+  description,
+  headings = [],
+  revision,
+  updatedAt,
+  appVersion,
+  draft = false,
+} = Astro.props;
+---
+
+<BaseLayout title={title} description={description} draft={draft} pageKind="legal">
+  <Breadcrumbs items={[
+    { label: 'Strona główna', href: withBase(routes.home) },
+    { label: title },
+  ]} />
+  {draft && (
+    <Callout class="draft-notice" title="Dokument roboczy" variant="danger">
+      <p>Ta wersja służy wyłącznie do testowania layoutu. Nie jest dokumentem prawnym i nie może zostać użyta w Google Play Console.</p>
+    </Callout>
+  )}
+  <header class="page-header">
+    <p class="eyebrow">Centrum prawne</p>
+    <h1>{title}</h1>
+    <p class="page-lead">{description}</p>
+    <dl class="document-metadata">
+      <div><dt>Rewizja</dt><dd>{revision}</dd></div>
+      <div>
+        <dt>Aktualizacja</dt>
+        <dd><time datetime={updatedAt.toISOString()}>{updatedAt.toLocaleDateString('pl-PL')}</time></dd>
+      </div>
+      {appVersion && <div><dt>Wersja aplikacji</dt><dd>{appVersion}</dd></div>}
+    </dl>
+  </header>
+  <div class="document-grid">
+    <article class="document-main prose"><slot /></article>
+    <TableOfContents headings={headings} />
+  </div>
+</BaseLayout>

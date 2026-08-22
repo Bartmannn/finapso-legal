@@ -1,21 +1,37 @@
 ---
 import { routes, siteConfig, withBase } from '../config/site.mjs';
+import ButtonLink from '../components/ButtonLink.astro';
+import Callout from '../components/Callout.astro';
+import Card from '../components/Card.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout title={siteConfig.title} description={siteConfig.description} draft>
-  <article>
-    <p class="eyebrow">Fundament serwisu</p>
-    <h1>Finapso</h1>
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="eyebrow">Podgląd systemu wizualnego</p>
+    <h1 id="hero-title">Finapso</h1>
     <p>
-      To techniczny szkielet wielostronicowej witryny. Docelowy wygląd i treść
-      powstaną w kolejnych zadaniach.
+      Spokojna, wielostronicowa przestrzeń na prezentację aplikacji,
+      dokumentację oraz czytelne dokumenty prawne.
     </p>
-    <nav aria-label="Trasy kontrolne">
-      <ul>
-        <li><a href={withBase(routes.privacy)}>Szkielet polityki prywatności</a></li>
-        <li><a href={withBase(routes.routingCheck)}>Kontrola zagnieżdżonej trasy</a></li>
-      </ul>
-    </nav>
-  </article>
+    <div class="button-row">
+      <ButtonLink href={withBase(routes.privacy)}>Zobacz layout prawny</ButtonLink>
+      <ButtonLink href={withBase(routes.routingCheck)} variant="secondary">Zobacz dokumentację</ButtonLink>
+    </div>
+  </section>
+
+  <div class="card-grid" aria-label="Elementy serwisu">
+    <Card>
+      <h2>Dokumentacja bez zbędnego ciężaru</h2>
+      <p>Osobne adresy, czytelna hierarchia i pełna treść dostępna bez JavaScriptu.</p>
+    </Card>
+    <Card>
+      <h2>Centrum prawne gotowe do rozbudowy</h2>
+      <p>Layout o kontrolowanej szerokości tekstu, metadanych rewizji i wydruku.</p>
+    </Card>
+  </div>
+
+  <Callout title="Zakres bieżącego podglądu">
+    <p>Widoczna treść sprawdza komponenty i długie polskie teksty. Finalne strony produktowe powstaną w kolejnych zadaniach.</p>
+  </Callout>
 </BaseLayout>
