@@ -11,17 +11,33 @@
   "scripts": {
     "dev": "node --env-file=config/astro.env ./node_modules/astro/bin/astro.mjs dev",
     "check": "node --env-file=config/astro.env ./node_modules/astro/bin/astro.mjs check",
-    "build": "node --env-file=config/astro.env ./node_modules/astro/bin/astro.mjs build",
+    "build": "node scripts/build-site.mjs preview",
+    "build:preview": "node scripts/build-site.mjs preview",
+    "build:production": "node scripts/build-site.mjs production",
+    "check:site": "node scripts/check-site.mjs preview",
     "check:legal-center": "node scripts/check-legal-center.mjs",
     "check:product-pages": "node scripts/check-product-pages.mjs",
+    "validate:html": "html-validate dist",
+    "test": "node scripts/run-quality-gate.mjs all",
+    "test:preview": "node scripts/run-quality-gate.mjs preview",
+    "test:production": "node scripts/run-quality-gate.mjs production",
+    "test:production-contract": "node scripts/verify-production-contract.mjs",
+    "test:negative": "node scripts/test-negative-gates.mjs",
+    "test:browser": "playwright test",
+    "audit:lighthouse": "node scripts/run-lighthouse.mjs",
     "preview": "node --env-file=config/astro.env ./node_modules/astro/bin/astro.mjs preview"
   },
   "dependencies": {
+    "@astrojs/sitemap": "3.7.3",
     "astro": "7.2.4"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
+    "@axe-core/playwright": "4.12.1",
+    "@playwright/test": "1.62.1",
     "@types/node": "24.13.3",
+    "html-validate": "11.6.2",
+    "lighthouse": "13.4.1",
     "typescript": "6.0.3"
   },
   "optionalDependencies": {

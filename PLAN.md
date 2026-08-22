@@ -121,7 +121,7 @@ ukończenia, pozostawiając modelowi wybór najprostszego poprawnego rozwiązani
 | ZAD3 | Design system i wspólne layouty | `COMPLETED` | ZAD2 | [ZAD3](docs/tasks/ZAD3-design-system-and-layouts.md) |
 | ZAD4 | Strony produktowe i dokumentacja | `COMPLETED` | ZAD3 | [ZAD4](docs/tasks/ZAD4-product-pages-and-documentation.md) |
 | ZAD5 | Szablon publicznego centrum prawnego | `COMPLETED` | ZAD3 | [ZAD5](docs/tasks/ZAD5-legal-center-template.md) |
-| ZAD6 | Bramki jakości i bezpieczeństwa publikacji | `PLANNED` | ZAD4, ZAD5 | [ZAD6](docs/tasks/ZAD6-quality-gates-and-release-safety.md) |
+| ZAD6 | Bramki jakości i bezpieczeństwa publikacji | `COMPLETED` | ZAD4, ZAD5 | [ZAD6](docs/tasks/ZAD6-quality-gates-and-release-safety.md) |
 | ZAD7 | Finalna treść prawna i synchronizacja z aplikacją | `PLANNED` | ZAD1, ZAD5, ZAD6, Finapso 65–68 | [ZAD7](docs/tasks/ZAD7-final-legal-content-and-app-sync.md) |
 | ZAD8 | Domena, publikacja, Google Play i app-ads.txt | `PLANNED` | ZAD6, ZAD7, Finapso 69–71 | [ZAD8](docs/tasks/ZAD8-domain-play-and-admob-publication.md) |
 | ZAD9 | Utrzymanie, monitoring i plan odtworzenia | `PLANNED` | ZAD8 | [ZAD9](docs/tasks/ZAD9-operations-maintenance-and-recovery.md) |

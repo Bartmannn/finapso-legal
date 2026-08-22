@@ -1,0 +1,26 @@
+{
+  "publicUrl": "https://bartmannn.github.io/finapso-legal/",
+  "draftWarning": "Wersja demonstracyjna — treść przykładowa, nie stanowi dokumentu prawnego i nie może zostać użyta w Google Play Console.",
+  "pages": [
+    { "route": "/", "indexable": true, "legal": false },
+    { "route": "/features/", "indexable": true, "legal": false },
+    { "route": "/docs/", "indexable": true, "legal": false },
+    { "route": "/docs/getting-started/", "indexable": true, "legal": false },
+    { "route": "/docs/data-and-backups/", "indexable": true, "legal": false },
+    { "route": "/docs/receipts/", "indexable": true, "legal": false },
+    { "route": "/docs/notifications/", "indexable": false, "legal": false },
+    { "route": "/docs/routing-check/", "indexable": false, "legal": false },
+    { "route": "/privacy/", "indexable": false, "legal": true },
+    { "route": "/privacy/archive/", "indexable": false, "legal": true },
+    { "route": "/terms/", "indexable": false, "legal": true },
+    { "route": "/support/", "indexable": false, "legal": true },
+    { "route": "/licenses/", "indexable": false, "legal": true },
+    { "route": "/404/", "indexable": false, "legal": false }
+  ],
+  "budgets": {
+    "cssGzipBytes": 51200,
+    "javascriptBytes": 10240,
+    "imageBytesEach": 204800,
+    "artifactBytes": 1048576
+  }
+}

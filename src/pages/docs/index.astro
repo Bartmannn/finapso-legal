@@ -48,7 +48,7 @@ const articles = [
     </p>
   </header>
 
-  <div class="card-grid docs-index" aria-label="Artykuły dokumentacji">
+  <section class="card-grid docs-index" aria-label="Artykuły dokumentacji">
     {articles.map((article) => (
       <Card>
         {article.status && <p class="status-label">{article.status}</p>}
@@ -56,7 +56,7 @@ const articles = [
         <p>{article.description}</p>
       </Card>
     ))}
-  </div>
+  </section>
 
   <section class="next-step" aria-labelledby="docs-help-title">
     <div>

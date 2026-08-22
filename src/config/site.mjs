@@ -25,6 +25,17 @@ export const routes = Object.freeze({
   routingCheck: '/docs/routing-check/',
 });
 
+export const noIndexRoutes = Object.freeze([
+  routes.notifications,
+  routes.routingCheck,
+  routes.privacy,
+  routes.privacyArchive,
+  routes.terms,
+  routes.support,
+  routes.licenses,
+  '/404/',
+]);
+
 /** @param {string} path */
 export function withBase(path) {
   const base = import.meta.env.BASE_URL.endsWith('/')

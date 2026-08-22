@@ -29,13 +29,17 @@ npm run dev
 Pozostałe polecenia:
 
 ```text
-npm run build
+npm run build:preview
+npm run build:production
 npm run preview
 ```
 
-`npm run build` zapisuje statyczny wynik w `dist/`. Podgląd używa tej samej bazy
+`npm run build` jest aliasem bezpiecznego `build:preview`. Zapisuje statyczny
+wynik w `dist/`, dodaje `build-meta.json` z pełnym SHA źródła i natychmiast
+wykonuje deterministyczny audyt artefaktu. Podgląd używa tej samej bazy
 `/finapso-legal/`, dlatego lokalny adres startowy jest wypisywany przez Astro i
-zawiera ten prefiks.
+zawiera ten prefiks. `build:production` dodatkowo odrzuca placeholdery na
+stronach prawnych i przed ukończeniem ZAD7 ma kończyć się kontrolowanym błędem.
 
 ## Konfiguracja adresu
 
@@ -65,6 +69,10 @@ builda `SITE_ORIGIN=https://example.com` oraz `SITE_BASE=/`. Nie dodawaj pliku
 - `/finapso-legal/support/`;
 - `/finapso-legal/licenses/`;
 - `/finapso-legal/docs/routing-check/`.
+
+Build tworzy również `/finapso-legal/robots.txt`, `sitemap-index.xml`,
+`sitemap-0.xml` oraz stronę błędu `404.html`. Sitemap nie wymienia szkiców ani
+tras z `noindex`.
 
 Strony produktowe i dokumentacja opisują aplikację w wersji `1.37.25`. Trasa
 asystenta powiadomień ma status roboczy i `noindex, nofollow`, ponieważ funkcja
@@ -101,12 +109,56 @@ Druga kontrola wymaga wcześniejszego `npm run build`. Sprawdza ochronę szkicu,
 statusy i metadane dokumentów, kotwice, brak wykonywalnego JavaScriptu,
 wewnętrzne linki oraz brak publicznego `security.txt`.
 
+## Bramki jakości i wydania
+
+Pełny kontrakt lokalny i CI uruchamia jedno polecenie:
+
+```text
+npm test
+```
+
+Obejmuje ono typy Astro, build preview, walidację HTML, wszystkie trasy, linki,
+canonical, sitemap, originy zasobów, skan sekretów i prywatnych formatów,
+budżety zasobów, Playwright, axe, klawiaturę, 320 px, cele 44 px, CLS oraz trzy
+kontrolowane przypadki negatywne. Na końcu sprawdza również bieżący kontrakt
+produkcji: przy szkicach oczekuje dokładnego błędu placeholderów, a po ich
+zatwierdzeniu będzie wymagać przejścia builda produkcyjnego.
+
+Węższe polecenia diagnostyczne:
+
+```text
+npm run test:preview
+npm run test:production
+npm run test:production-contract
+npm run test:negative
+npm run test:browser
+npm run validate:html
+```
+
+Przed pierwszym lokalnym testem przeglądarkowym zainstaluj przypięte Chromium:
+
+```text
+npx playwright install chromium
+```
+
+Na Linuksie CI workflow wykonuje `npx playwright install --with-deps chromium`.
+Raportowe pomiary strony głównej i polityki uruchamia `npm run
+audit:lighthouse`; wyniki JSON trafiają do ignorowanego katalogu
+`.artifacts/lighthouse/`. Wynik Lighthouse zależy od maszyny, dlatego nie jest
+niestabilnym progiem blokującym CI. Krytyczne regresje wydajności blokują
+powtarzalne budżety CSS, JavaScriptu, obrazów, całego artefaktu i test CLS.
+
+Pełne mapowanie wymagania na test i komunikat błędu znajduje się w
+[`docs/quality/QUALITY_GATE_MATRIX.md`](docs/quality/QUALITY_GATE_MATRIX.md).
+
 ## GitHub Actions i publikacja
 
-Workflow `.github/workflows/build-pages.yml` instaluje zależności, sprawdza typy,
-buduje stronę i zapisuje techniczny artefakt GitHub Pages. Celowo nie ma joba
-`deploy`, uprawnienia `pages: write` ani `id-token: write`, więc sam workflow nie
-publikuje witryny.
+Workflow `.github/workflows/build-pages.yml` instaluje zależności z lockfile,
+instaluje Chromium, uruchamia dokładnie `npm test` i zapisuje sprawdzony artefakt
+GitHub Pages. Wszystkie akcje są przypięte do pełnych SHA, token ma tylko
+`contents: read`, a Dependabot proponuje małe aktualizacje npm i Actions raz w
+tygodniu. Celowo nie ma joba `deploy`, uprawnienia `pages: write` ani
+`id-token: write`, więc sam workflow nie publikuje witryny.
 
 Publikacja, zmiana ustawień GitHub Pages oraz `push` są osobnym, autoryzowanym
 etapem. Do tego czasu bieżąca strona publiczna może nadal wskazywać starszą albo

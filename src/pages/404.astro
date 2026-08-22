@@ -1,0 +1,24 @@
+---
+import ButtonLink from '../components/ButtonLink.astro';
+import { routes, withBase } from '../config/site.mjs';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Nie znaleziono strony"
+  description="Pod tym adresem nie ma strony Finapso."
+  draft={true}
+>
+  <section class="hero" aria-labelledby="not-found-title">
+    <p class="eyebrow">Błąd 404</p>
+    <h1 id="not-found-title">Nie znaleziono strony</h1>
+    <p>
+      Adres mógł się zmienić albo zawierać literówkę. Dokumenty prawne i
+      instrukcje pozostają dostępne z głównej nawigacji.
+    </p>
+    <div class="button-row">
+      <ButtonLink href={withBase(routes.home)}>Wróć na stronę główną</ButtonLink>
+      <ButtonLink href={withBase(routes.docs)} variant="secondary">Otwórz dokumentację</ButtonLink>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "production-placeholder",
+    "gate": "productionLegal",
+    "route": "/privacy/",
+    "html": "<!doctype html><html lang=\"pl\"><body><main><h1>Polityka</h1><p>Lorem ipsum</p></main></body></html>",
+    "expected": "[release-placeholder] /privacy/: lorem ipsum"
+  },
+  {
+    "id": "broken-internal-link",
+    "gate": "internalLinks",
+    "route": "/",
+    "html": "<!doctype html><html lang=\"pl\"><body><main><h1>Start</h1><a href=\"/finapso-legal/brakujaca/\">Brak</a></main></body></html>",
+    "expected": "[internal-link] /: brak celu /finapso-legal/brakujaca/"
+  },
+  {
+    "id": "external-script",
+    "gate": "resourceOrigins",
+    "route": "/",
+    "html": "<!doctype html><html lang=\"pl\"><body><main><h1>Start</h1><script src=\"https://tracker.example/collect.js\"></script></main></body></html>",
+    "expected": "[external-resource] /: https://tracker.example/collect.js"
+  }
+]
