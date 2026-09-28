@@ -24,7 +24,7 @@ const docs = defineCollection({
         updatedAt: '2026-08-22',
         revision: '1.0',
         draft: false,
-        appVersion: '1.37.25',
+        appVersion: '1.53.39',
       },
     },
     {
@@ -33,10 +33,10 @@ const docs = defineCollection({
       data: {
         title: 'Dane i kopie',
         description: 'Jak dane są przechowywane oraz jak eksportować i przywracać kopię Finapso.',
-        updatedAt: '2026-08-22',
+        updatedAt: '2026-09-28',
         revision: '1.0',
         draft: false,
-        appVersion: '1.37.25',
+        appVersion: '1.53.39',
       },
     },
     {
@@ -45,10 +45,10 @@ const docs = defineCollection({
       data: {
         title: 'Paragony i OCR',
         description: 'Importuj paragon, sprawdź lokalny odczyt i popraw wynik przed zapisem.',
-        updatedAt: '2026-08-22',
+        updatedAt: '2026-09-28',
         revision: '1.0',
         draft: false,
-        appVersion: '1.37.25',
+        appVersion: '1.53.39',
       },
     },
     {
@@ -60,7 +60,7 @@ const docs = defineCollection({
         updatedAt: '2026-08-22',
         revision: 'przed wydaniem',
         draft: true,
-        appVersion: '1.37.25',
+        appVersion: '1.53.39',
       },
     },
     {
@@ -83,22 +83,22 @@ const legal = defineCollection({
   loader: localMarkdownLoader('legal', [
     {
       id: 'privacy',
-      file: 'src/content/legal/privacy.md',
+      file: 'src/content/legal/privacy-mvp-review.md',
       data: {
-        title: 'Polityka prywatności Finapso — szkic',
-        description: 'Demonstracyjny szablon przyszłej polityki prywatności aplikacji Finapso.',
+        title: 'Polityka prywatności Finapso',
+        description: 'Zasady przetwarzania danych w aplikacji Finapso i korespondencji ze wsparciem.',
         productName: 'Finapso',
         packageName: 'app.finapso.android',
-        status: 'DRAFT',
-        updatedAt: '2026-08-22',
-        effectiveAt: null,
-        revision: 'DRAFT-ZAD5',
-        appVersion: '1.37.25',
+        status: 'APPROVED',
+        updatedAt: '2026-09-28',
+        effectiveAt: '2026-09-28',
+        revision: '1.0-MVP',
+        appVersion: '1.53.39',
         changeHistory: [
           {
-            revision: 'DRAFT-ZAD5',
-            date: '2026-08-22',
-            summary: 'Utworzenie chronionego szablonu bez zatwierdzonej treści prawnej.',
+            revision: '1.0-MVP',
+            date: '2026-09-28',
+            summary: 'Pierwsza rewizja dla MVP bez reklam i formularza zgłoszeń.',
           },
         ],
       },

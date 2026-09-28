@@ -53,10 +53,11 @@ Zwykły podgląd pokazuje obrazy stron, nie surowy tekst OCR. Diagnostyczny eksp
 OCR jest osobną, świadomą akcją w Ustawieniach i może zawierać tekst oraz obrazy
 stron. Nie zawiera prywatnych ścieżek plików ani źródłowych URI.
 
-W formularzu kontaktowym można zgłosić błąd bez paragonu. Dołączenie danych
-testowych dokumentu wymaga wybrania go, podglądu stron, osobnego potwierdzenia i
-jawnego naciśnięcia **Wyślij zgłoszenie**. Nie dołączaj dokumentu, jeżeli nie
-jest potrzebny do rozwiązania problemu.
+Formularz zgłoszeń jest wyłączony w pierwszym wydaniu. Błąd można zgłosić na
+`finapso.support@gmail.com` z własnej aplikacji pocztowej. Finapso nie dołącza
+automatycznie paragonu ani danych OCR. Jeśli zdecydujesz się dołączyć wynik
+eksportu diagnostycznego, najpierw sprawdź jego zawartość i usuń niepotrzebne
+dane.
 
 ## Następny krok
 

@@ -4,24 +4,24 @@ import { routes, siteConfig, withBase } from '../../config/site.mjs';
 import type { LegalChange } from '../../content/legalSchema';
 import LegalLayout from '../../layouts/LegalLayout.astro';
 
-const updatedAt = new Date('2026-08-22T00:00:00Z');
+const updatedAt = new Date('2026-09-28T00:00:00Z');
 const changeHistory: LegalChange[] = [{
-  revision: 'DRAFT-ZAD5',
+  revision: '1.0-MVP',
   date: updatedAt,
-  summary: 'Utworzenie demonstracyjnej strony kontaktu i rozdzielenie rodzajów usuwania danych.',
+  summary: 'Dostosowanie kontaktu i zasad usuwania korespondencji do zakresu MVP.',
 }];
 ---
 
 <LegalLayout
-  title="Wsparcie i prywatność Finapso — szkic"
-  description="Demonstracyjna strona kontaktu, pomocy i żądań dotyczących danych Finapso."
-  revision="DRAFT-ZAD5"
+  title="Wsparcie i prywatność Finapso"
+  description="Kontakt, pomoc i żądania dotyczące danych Finapso."
+  revision="1.0-MVP"
   updatedAt={updatedAt}
-  effectiveAt={null}
+  effectiveAt={updatedAt}
   packageName="app.finapso.android"
-  status="DRAFT"
+  status="APPROVED"
   changeHistory={changeHistory}
-  appVersion="1.37.25"
+  appVersion="1.53.39"
 >
   <h2 id="kontakt">Kontakt</h2>
   <p>
@@ -66,10 +66,12 @@ const changeHistory: LegalChange[] = [{
     </ButtonLink>
   </div>
 
-  <h2 id="czas-odpowiedzi">Czas odpowiedzi i finalny proces</h2>
+  <h2 id="czas-odpowiedzi">Przechowywanie korespondencji</h2>
   <p>
-    Termin odpowiedzi, sposób weryfikacji żądania oraz okresy retencji zostaną
-    zatwierdzone w finalnej polityce. Ten szkic nie ustanawia jeszcze wiążącego
-    procesu ani terminu realizacji.
+    Wydawca przyjął comiesięczny ręczny przegląd skrzynki i usuwanie zgłoszeń
+    przy pierwszym przeglądzie po upływie 180 dni od otrzymania. Sprawy nadal
+    otwarte są usuwane przy najbliższym przeglądzie po ich zakończeniu, chyba
+    że konkretny obowiązek prawny lub roszczenie uzasadnia dłuższe zachowanie.
+    Dane można usunąć wcześniej na wniosek przesłany na adres wsparcia.
   </p>
 </LegalLayout>

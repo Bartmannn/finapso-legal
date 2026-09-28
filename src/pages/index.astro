@@ -11,7 +11,7 @@ const structuredData = {
   name: 'Finapso',
   applicationCategory: 'FinanceApplication',
   operatingSystem: 'Android',
-  softwareVersion: '1.37.25',
+  softwareVersion: '1.53.39',
   inLanguage: 'pl',
   url: siteConfig.publicUrl,
   description: 'Aplikacja Android do lokalnego zarządzania finansami osobistymi.',
@@ -35,7 +35,7 @@ const structuredData = {
       <ButtonLink href={withBase(routes.gettingStarted)}>Pierwsze kroki</ButtonLink>
       <ButtonLink href={withBase(routes.features)} variant="secondary">Poznaj funkcje</ButtonLink>
     </div>
-    <p class="availability-note">Wersja opisana na stronie: 1.37.25 · Link Google Play pojawi się po udostępnieniu prawidłowego adresu aplikacji.</p>
+    <p class="availability-note">Wersja opisana na stronie: 1.53.39 · Link Google Play pojawi się po udostępnieniu prawidłowego adresu aplikacji.</p>
   </section>
 
   <section class="section-block" aria-labelledby="overview-title">
@@ -76,9 +76,8 @@ const structuredData = {
           z internetem.
         </p>
         <p>
-          Użytkownik może świadomie wysłać zgłoszenie do wsparcia. Wybrane dane
-          diagnostyczne paragonu mogą zostać dołączone dopiero po podglądzie,
-          osobnym potwierdzeniu i naciśnięciu przycisku wysyłania.
+          Kontakt ze wsparciem odbywa się przez aplikację pocztową użytkownika.
+          Finapso nie dołącza automatycznie danych finansowych ani paragonów.
         </p>
       </div>
       <Callout title="Pierwsze wydanie bez reklam">
@@ -96,11 +95,7 @@ const structuredData = {
     <div class="card-grid">
       <Card>
         <h3><a href={withBase(routes.privacy)}>Polityka prywatności</a></h3>
-        <p>Bieżąca trasa jest demonstracyjnym szkicem i nie może zostać użyta w Google Play Console.</p>
-      </Card>
-      <Card>
-        <h3><a href={withBase(routes.terms)}>Warunki korzystania</a></h3>
-        <p>Chroniony szkic struktury przyszłych warunków, bez zatwierdzonej treści prawnej.</p>
+        <p>Zasady dotyczące danych lokalnych, kopii, asystenta powiadomień oraz kontaktu ze wsparciem.</p>
       </Card>
       <Card>
         <h3><a href={withBase(routes.support)}>Wsparcie</a></h3>
@@ -108,7 +103,7 @@ const structuredData = {
       </Card>
       <Card>
         <h3><a href={withBase(routes.docs)}>Dokumentacja</a></h3>
-        <p>Instrukcje do funkcji i ograniczeń wersji 1.37.25.</p>
+        <p>Instrukcje do funkcji i ograniczeń aplikacji.</p>
       </Card>
     </div>
   </section>

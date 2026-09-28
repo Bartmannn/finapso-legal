@@ -5,8 +5,8 @@ danych finansowych. Prywatne obrazy oraz pliki PDF paragonów są przechowywane 
 katalogach aplikacji, a nie w publicznej galerii.
 
 Finapso jest projektowane jako offline-first. Nie ma backendu finansowego ani
-integracji bankowej. Świadomie wysłane zgłoszenie do wsparcia jest osobnym
-przepływem i nie oznacza automatycznego przesyłania całej bazy.
+integracji bankowej. Wiadomość e-mail napisana z własnej aplikacji pocztowej
+jest osobnym przepływem i nie oznacza automatycznego przesyłania całej bazy.
 
 ## Co zawiera pełna kopia
 

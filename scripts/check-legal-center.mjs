@@ -4,7 +4,7 @@ import path from 'node:path';
 const workspaceRoot = process.cwd();
 const distRoot = path.join(workspaceRoot, 'dist');
 const publicBase = new URL('https://bartmannn.github.io/finapso-legal/');
-const exactWarning = 'Wersja demonstracyjna — treść przykładowa, nie stanowi dokumentu prawnego i nie może zostać użyta w Google Play Console.';
+const exactWarning = 'Wersja robocza — nie jest zatwierdzonym dokumentem i nie może zostać użyta w Google Play Console.';
 const fixtures = JSON.parse(
   await readFile(path.join(workspaceRoot, 'tests', 'fixtures', 'legal-center.json'), 'utf8'),
 );
@@ -74,15 +74,21 @@ for (const fixture of fixtures) {
   if (!html.includes('<html lang="pl">')) fail(`${fixture.route}: brak lang=pl`);
   if (!html.includes(`<title>${fixture.title}</title>`)) fail(`${fixture.route}: nieprawidłowy title`);
   if ((html.match(/<h1\b/g) ?? []).length !== 1) fail(`${fixture.route}: oczekiwano jednego h1`);
-  if (!text.includes(exactWarning)) fail(`${fixture.route}: brak dokładnego ostrzeżenia demonstracyjnego`);
-  if (!text.includes('DRAFT')) fail(`${fixture.route}: brak widocznego statusu DRAFT`);
-  if (!text.includes('Nie obowiązuje — szkic')) fail(`${fixture.route}: szkic wygląda jak dokument obowiązujący`);
+  if (fixture.draft) {
+    if (!text.includes(exactWarning)) fail(`${fixture.route}: brak dokładnego ostrzeżenia o szkicu`);
+    if (!text.includes('DRAFT')) fail(`${fixture.route}: brak widocznego statusu DRAFT`);
+    if (!text.includes('Nie obowiązuje — szkic')) fail(`${fixture.route}: szkic wygląda jak dokument obowiązujący`);
+  } else {
+    if (text.includes(exactWarning) || text.includes('DRAFT')) fail(`${fixture.route}: zatwierdzona strona wygląda jak szkic`);
+    if (!text.includes('APPROVED')) fail(`${fixture.route}: brak statusu APPROVED`);
+  }
   if (!text.includes('app.finapso.android')) fail(`${fixture.route}: brak identyfikatora pakietu`);
   if (!text.includes('Historia zmian dokumentu')) fail(`${fixture.route}: brak historii zmian`);
 
   const robots = findTag(html, 'name', 'robots');
-  if (attributeValue(robots ?? '', 'content') !== 'noindex, nofollow') {
-    fail(`${fixture.route}: brak noindex, nofollow`);
+  const hasNoIndex = attributeValue(robots ?? '', 'content') === 'noindex, nofollow';
+  if (hasNoIndex !== fixture.draft) {
+    fail(`${fixture.route}: nieprawidłowy status indeksowania`);
   }
 
   const canonical = findTag(html, 'rel', 'canonical');

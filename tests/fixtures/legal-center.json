@@ -1,21 +1,24 @@
 [
   {
     "route": "/privacy/",
-    "title": "Polityka prywatności Finapso — szkic | Finapso",
-    "lorem": true,
+    "title": "Polityka prywatności Finapso | Finapso",
+    "draft": false,
+    "lorem": false,
     "toc": true,
-    "anchors": ["status-i-zakres-dokumentu", "administrator-i-kontakt", "reklamy-i-platforma-zgody-ump"]
+    "anchors": ["zakres-polityki-i-kontakt", "dane-zapisane-na-urządzeniu", "przechowywanie-i-usuwanie"]
   },
   {
     "route": "/terms/",
     "title": "Warunki korzystania z Finapso — szkic | Finapso",
+    "draft": true,
     "lorem": true,
     "toc": true,
     "anchors": ["status-i-zakres-dokumentu", "usługa-i-wydawca", "odpowiedzialność"]
   },
   {
     "route": "/support/",
-    "title": "Wsparcie i prywatność Finapso — szkic | Finapso",
+    "title": "Wsparcie i prywatność Finapso | Finapso",
+    "draft": false,
     "lorem": false,
     "toc": false,
     "anchors": ["kontakt", "dane-lokalne", "dane-wsparcia"]
@@ -23,6 +26,7 @@
   {
     "route": "/licenses/",
     "title": "Licencje Finapso — szkic | Finapso",
+    "draft": true,
     "lorem": false,
     "toc": false,
     "anchors": ["status-wykazu", "zakres", "kontakt-licencje"]
@@ -30,6 +34,7 @@
   {
     "route": "/privacy/archive/",
     "title": "Archiwum polityki prywatności Finapso — szkic | Finapso",
+    "draft": true,
     "lorem": false,
     "toc": false,
     "anchors": ["brak-rewizji", "zasada-archiwizacji"]

@@ -100,7 +100,7 @@ for (const fixture of fixtures) {
   const structuredData = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
   if (fixture.structuredData) {
     const parsed = JSON.parse(structuredData ?? fail(`${fixture.route}: brak danych SoftwareApplication`));
-    if (parsed['@type'] !== 'SoftwareApplication' || parsed.softwareVersion !== '1.37.25') {
+    if (parsed['@type'] !== 'SoftwareApplication' || parsed.softwareVersion !== '1.53.39') {
       fail(`${fixture.route}: nieprawidłowe dane SoftwareApplication`);
     }
   } else if (structuredData) {

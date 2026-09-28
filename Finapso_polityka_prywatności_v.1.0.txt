@@ -1,32 +1,33 @@
 POLITYKA PRYWATNOŚCI APLIKACJI FINAPSO
 
-Projekt roboczy wersji 1.0 dla pierwszego wydania bez reklam
-Data ostatniej aktualizacji projektu: 22.08.2026 r.
+Projekt do zatwierdzenia dla pierwszego wydania bez reklam i formularza
+Data ostatniej aktualizacji projektu: 28.09.2026 r.
+Stan aplikacji użyty do korekty: 1.53.39 (przygotowany lokalnie, jeszcze niewydany)
+Wariant strony: src/content/legal/privacy-mvp-review.md — treść wymaga
+ujednolicenia i zatwierdzenia jednej rewizji przed publikacją.
 
 
 NOTA REDAKCYJNA — USUNĄĆ PRZED PUBLIKACJĄ
 
-Ten dokument jest projektem przygotowanym na podstawie audytu technicznego
-aplikacji Finapso 1.37.25. Nie jest jeszcze zatwierdzoną wersją publikacyjną
-i nie powinien być podpinany w Google Play Console, dopóki:
+Ten dokument jest projektem opartym na audycie technicznym i zmianach MVP.
+Nie jest jeszcze zatwierdzoną wersją publikacyjną i nie powinien być podpinany
+w Google Play Console, dopóki:
 
 1) finalny plik AAB nie zostanie ponownie porównany z treścią dokumentu;
 
-2) dane finansowe, preferencje, PIN, paragony i OCR nie zostaną wyłączone z
-   Android Cloud Backup oraz transferu urządzenie–urządzenie albo poniższy opis
-   kopii nie zostanie zaakceptowany jako stan wydania;
+2) finalny manifest i działanie wyłączenia Android Cloud Backup oraz transferu
+   urządzenie–urządzenie nie zostaną porównane z opisem kopii poniżej;
 
-3) nie zostanie potwierdzona i rzeczywiście wdrożona retencja wiadomości oraz
-   załączników przesyłanych do wsparcia;
+3) właściciel nie uruchomi i nie potwierdzi przy odbiorze comiesięcznego
+   ręcznego przeglądu oraz usuwania wiadomości e-mail opisanego w punkcie 11;
 
-4) nie zostanie rozstrzygnięte, czy asystent powiadomień będzie dostępny w
-   pierwszym wydaniu;
+4) nie zostanie potwierdzony zakres asystenta powiadomień w finalnym wydaniu;
 
-5) SDK Google Mobile Ads i UMP nie zostaną usunięte z wariantu produkcyjnego
-   albo test ruchu finalnego AAB nie potwierdzi, że pozostają nieaktywne;
+5) finalny AAB nie potwierdzi braku SDK reklamowych i aktywnego formularza;
 
-6) dokładna rewizja nie zostanie zatwierdzona przez właściciela i osobę
-   posiadającą odpowiednie kompetencje prawne.
+6) właściciel nie zatwierdzi dokładnej rewizji, w tym podstaw prawnych,
+   odbiorców, transferów i sposobu obsługi żądań. Konsultacja prawna jest
+   opcjonalna, ale samodzielna akceptacja właściciela jest konieczna.
 
 
 1. O DOKUMENCIE I APLIKACJI
@@ -44,10 +45,9 @@ bankowego. Aplikacja nie wymaga utworzenia konta, rejestracji ani logowania do
 usługi Finapso.
 
 Podstawowe dane wprowadzane do aplikacji są przechowywane lokalnie na urządzeniu
-użytkownika. Nie oznacza to jednak, że w każdym przypadku wszystkie dane
-pozostają wyłącznie na urządzeniu. Wybrane informacje mogą opuścić urządzenie
-w ramach systemowej kopii Androida, technicznej telemetrii użytego SDK albo
-zgłoszenia dobrowolnie wysłanego przez użytkownika. Przypadki te opisano niżej.
+użytkownika. Informacje techniczne użytego SDK mogą opuścić urządzenie, a
+użytkownik może sam wysłać wiadomość e-mail lub zapisać ręczny eksport u
+wybranego dostawcy plików. Przypadki te opisano niżej.
 
 
 2. ADMINISTRATOR I KONTAKT
@@ -118,20 +118,15 @@ https://policies.google.com/privacy
 
 5. SYSTEMOWE KOPIE ANDROIDA I TRANSFER NA NOWE URZĄDZENIE
 
-W wersji aplikacji objętej audytem część danych Finapso może zostać ujęta
-w mechanizmach Android Cloud Backup lub transferu danych na nowe urządzenie.
-Dotyczy to w szczególności głównej bazy finansowej, preferencji i niektórych
-dokumentów paragonów. Obrazy paragonów są wyłączone z kopii chmurowej, lecz
-zakres transferu urządzenie–urządzenie może być szerszy.
+Finapso jest skonfigurowane tak, aby wyłączyć nowe systemowe kopie Android
+Cloud Backup oraz transfer danych urządzenie–urządzenie. Reguły manifestu i
+kopii wykluczają magazyny aplikacji. Rzeczywisty test transferu na urządzeniu
+pozostaje do odbioru przed zatwierdzeniem tego twierdzenia dla finalnego AAB.
 
-Kopia jest obsługiwana przez system Android i usługi Google zgodnie z
-ustawieniami urządzenia oraz konta Google. Administrator nie ma dostępu do jej
-treści, nie ustala okresu jej przechowywania i nie może jej samodzielnie usunąć.
-Użytkownik zarządza kopiami za pomocą ustawień urządzenia i konta Google.
-
-Zakres systemowej kopii ma zostać ograniczony przed pierwszym wydaniem MVP.
-Jeżeli ograniczenie zostanie wdrożone i potwierdzone testem finalnego AAB, ten
-punkt musi zostać odpowiednio zaktualizowany przed publikacją Polityki.
+Kopie systemowe, które mogły powstać przy wcześniejszych wersjach aplikacji,
+podlegają ustawieniom Androida i usług Google. Administrator nie ma dostępu do
+ich zawartości, nie ustala ich retencji i nie może ich samodzielnie usunąć.
+Przeniesienie bieżących danych Finapso wymaga ręcznego eksportu i importu.
 
 
 6. EKSPORT I IMPORT DANYCH
@@ -177,21 +172,23 @@ usunąć wszystkie reguły albo wykonać pełny reset danych.
 Użytkownik może cofnąć dostęp w ustawieniach Androida. Historia powiadomień
 prowadzona przez system Android pozostaje poza kontrolą Finapso.
 
-Asystent jest funkcją eksperymentalną i nie powinien zostać udostępniony w MVP
-bez osobnego, wyraźnego wyjaśnienia w aplikacji, przeglądu prawnego oraz testów
-na finalnym wydaniu.
+Asystent wymaga osobnego, wyraźnego wyjaśnienia w aplikacji i odbioru na
+finalnym wydaniu. Jeżeli nie trafi do pierwszego wydania, ten punkt trzeba
+zaktualizować przed publikacją Polityki.
 
 
-8. KONTAKT ZE WSPARCIEM I DOBROWOLNE ZAŁĄCZNIKI
+8. KONTAKT E-MAIL I DOBROWOLNE ZAŁĄCZNIKI
 
-Użytkownik może skontaktować się ze wsparciem przez pocztę elektroniczną albo,
-jeżeli funkcja jest dostępna, przez formularz w aplikacji.
+W pierwszym wydaniu formularz zgłoszeń w aplikacji jest wyłączony. Użytkownik
+może dobrowolnie napisać z własnej aplikacji pocztowej na
+finapso.support@gmail.com. Finapso nie dołącza automatycznie budżetu,
+transakcji, paragonu ani danych OCR.
 
 W związku ze zgłoszeniem Administrator może otrzymać:
 
 1) adres e-mail i inne dane kontaktowe podane przez użytkownika;
 
-2) kategorię i treść wiadomości;
+2) temat i treść wiadomości;
 
 3) informacje techniczne potrzebne do rozpoznania problemu, na przykład wersję
    aplikacji i systemu;
@@ -203,10 +200,10 @@ Przed wysłaniem załączników użytkownik powinien sprawdzić ich zawartość 
 usunąć informacje, które nie są potrzebne do rozwiązania sprawy. Przesłanie
 paragonu lub OCR jest dobrowolne i wymaga jawnego działania użytkownika.
 
-Formularz aplikacji, jeżeli jest aktywny, przesyła zgłoszenie przez połączenie
-HTTPS za pośrednictwem technicznego relayu do skrzynki
-finapso.support@gmail.com. Operator relayu oraz jego zasady przetwarzania muszą
-zostać potwierdzone przed publikacją tej Polityki.
+Wiadomość jest przechowywana w skrzynce Gmail. Aplikacja Finapso nie przesyła
+jej przez Google Apps Script ani nie nadaje automatycznie kodu zgłoszenia.
+Użytkownik może poprosić o usunięcie wiadomości e-mailem, podając przybliżoną
+datę i temat, bez ponownego przesyłania załączników.
 
 
 9. CELE I PODSTAWY PRZETWARZANIA PRZEZ ADMINISTRATORA
@@ -238,19 +235,15 @@ Podstawy prawne tego punktu wymagają zatwierdzenia przed publikacją dokumentu.
 
 W zależności od używanej funkcji dane mogą być przetwarzane przez:
 
-1) Google jako operatora Google Play, dostawcę systemowych kopii Androida,
-   dostawcę ML Kit oraz dostawcę poczty Gmail;
+1) Google jako operatora Google Play, dostawcę ML Kit oraz poczty Gmail;
 
-2) operatora technicznego relayu zgłoszeń, jeżeli formularz w aplikacji jest
-   aktywny;
-
-3) dostawców hostingu i infrastruktury technicznej w zakresie niezbędnym do
+2) dostawców hostingu i infrastruktury technicznej w zakresie niezbędnym do
    utrzymania usługi;
 
-4) doradców prawnych, księgowych lub technicznych, jeżeli dostęp jest
+3) doradców prawnych, księgowych lub technicznych, jeżeli dostęp jest
    niezbędny do wykonania ich zadania;
 
-5) organy publiczne, jeżeli przekazanie danych wynika z przepisów prawa.
+4) organy publiczne, jeżeli przekazanie danych wynika z przepisów prawa.
 
 Administrator nie sprzedaje danych osobowych ani lokalnych danych finansowych
 użytkowników. Nie przekazuje danych finansowych do celów reklamowych.
@@ -275,26 +268,18 @@ archiwizowane. Usunięcie pliku paragonu może pozostawić w bazie surowy tekst
 OCR, pozycje i metadane do czasu pełnego resetu danych. Opis ten musi zostać
 ponownie zweryfikowany po zmianach technicznych przed wydaniem.
 
-Systemowa kopia Androida podlega zasadom i ustawieniom Google. Usunięcie danych
-z urządzenia nie musi powodować natychmiastowego usunięcia wcześniejszej kopii
-przechowywanej przez Google.
+Wyłączenie nowych systemowych kopii nie usuwa wcześniejszych kopii, które mogły
+powstać przy starszych wersjach. Podlegają one zasadom i ustawieniom Google.
 
-Dla danych przesłanych do wsparcia planowane są następujące maksymalne okresy:
-
-1) obrazy paragonów i dane OCR — do 90 dni;
-
-2) treść zgłoszenia i dane kontaktowe — do rozwiązania sprawy, nie dłużej niż
-   180 dni;
-
-3) zanonimizowany opis problemu, który nie pozwala zidentyfikować użytkownika
-   — bez ograniczenia czasowego;
-
-4) dane potrzebne do wykonania obowiązków prawnych lub obrony roszczeń —
-   przez okres wynikający z właściwych przepisów.
-
-Okresy dotyczące wsparcia są propozycją i nie mogą zostać opublikowane, dopóki
-Administrator nie wdroży odpowiadającej im procedury czyszczenia skrzynki i
-załączników.
+Formularz w aplikacji jest wyłączony, więc dawne okresy 90/180 dni dla
+zgłoszeń przez formularz nie są częścią procesu MVP. Administrator raz w
+miesiącu przegląda Gmail i ręcznie usuwa zgłoszenia przy pierwszym przeglądzie
+po upływie 180 dni od otrzymania. Jeżeli sprawa nadal trwa po tym okresie,
+wiadomość usuwa się przy najbliższym comiesięcznym przeglądzie po jej
+zakończeniu. Konkretny obowiązek prawny albo potrzeba dochodzenia lub obrony
+roszczenia może uzasadniać dłuższe zachowanie niezbędnych danych. Nie działa automatyczne
+usuwanie po 90/180 dniach. Przed publikacją Administrator musi zacząć
+stosować tę ręczną procedurę.
 
 Użytkownik może poprosić o wcześniejsze usunięcie danych przesłanych do
 wsparcia, pisząc na finapso.support@gmail.com. Administrator może poprosić o
@@ -350,8 +335,9 @@ odrębnej procedurze opisanej w punkcie 11.
 14. BEZPIECZEŃSTWO
 
 Finapso korzysta z prywatnych katalogów aplikacji udostępnianych przez Androida.
-Połączenia formularza wsparcia i technicznej telemetrii Google są szyfrowane
-w tranzycie za pomocą HTTPS lub TLS.
+Według Google połączenia technicznej telemetrii ML Kit są szyfrowane w tranzycie
+za pomocą HTTPS. Wiadomości e-mail wysyłane są przez klienta poczty wybranego
+przez użytkownika, nie przez formularz Finapso.
 
 Administrator stosuje środki organizacyjne odpowiednie do obsługi korespondencji,
 w szczególności ogranicza dostęp do skrzynki i zabezpiecza używane konta oraz
@@ -378,11 +364,9 @@ niej analityki, reklam, trackerów, zewnętrznych fontów, formularzy sieciowych
 marketingowych plików cookies. Operator hostingu GitHub Pages może niezależnie
 przetwarzać standardowe dane techniczne połączenia zgodnie z własnymi zasadami.
 
-Mimo wyłączonych reklam biblioteki Google Mobile Ads i UMP są obecnie
-zapakowane w audytowanym wariancie produkcyjnym. Przed publikacją trzeba je
-usunąć z finalnego AAB albo potwierdzić testem ruchu, że nie inicjują połączeń
-i nie przetwarzają danych. W przeciwnym razie ten punkt oraz deklaracje Google
-Play wymagają aktualizacji.
+Kod Google Mobile Ads i UMP został usunięty z wariantów aplikacji w zadaniu
+67D; negatywne bramki buildu sprawdzają jego brak. Przed publikacją trzeba
+jeszcze porównać niniejszy tekst z finalnym AAB i odpowiedziami Data safety.
 
 
 16. GOOGLE PLAY I SYSTEM ANDROID

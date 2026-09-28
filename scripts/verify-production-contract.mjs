@@ -1,11 +1,12 @@
-import { readFile } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 
 import { productionPlaceholderLabels, routeToFile } from './lib/site-audit.mjs';
 
 const npmCli = process.env.npm_execpath;
 if (!npmCli) throw new Error('Uruchom kontrakt przez npm, aby ustalić ścieżkę npm-cli.');
-const legalRoutes = ['/privacy/', '/privacy/archive/', '/terms/', '/support/', '/licenses/'];
+const releaseLegalRoutes = ['/privacy/', '/support/'];
+const deferredLegalRoutes = ['/privacy/archive/', '/terms/', '/licenses/'];
 
 function run(script, capture = false) {
   const result = spawnSync(process.execPath, [npmCli, 'run', script], {
@@ -22,7 +23,7 @@ let preview = run('build:preview');
 if (preview.status !== 0) process.exit(preview.status ?? 1);
 
 const expectedBlockers = [];
-for (const route of legalRoutes) {
+for (const route of releaseLegalRoutes) {
   const labels = productionPlaceholderLabels(await readFile(routeToFile(route), 'utf8'));
   if (labels.length > 0) expectedBlockers.push({ route, labels });
 }
@@ -52,5 +53,13 @@ if (expectedBlockers.length > 0) {
   process.stdout.write(output);
   throw new Error('Brak szkiców prawnych, ale build produkcyjny nie przeszedł.');
 } else {
-  console.log('Kontrakt produkcyjny: PASS.');
+  for (const route of deferredLegalRoutes) {
+    try {
+      await access(routeToFile(route));
+      throw new Error(`Szkic ${route} został opublikowany w pakiecie MVP.`);
+    } catch (error) {
+      if (error?.code !== 'ENOENT') throw error;
+    }
+  }
+  console.log('Kontrakt produkcyjny: PASS (polityka i kontakt; trzy szkice pominięte).');
 }

@@ -4,6 +4,7 @@ import { gzipSync } from 'node:zlib';
 
 const workspaceRoot = process.cwd();
 const distRoot = path.join(workspaceRoot, 'dist');
+const deferredLegalRoutes = new Set(['/privacy/archive/', '/terms/', '/licenses/']);
 
 export function fail(message) {
   throw new Error(message);
@@ -236,7 +237,7 @@ async function assertSourceSafety() {
   assertWorkflowSafety(workflow);
 }
 
-async function assertSitemap(contract) {
+async function assertSitemap(contract, mode) {
   const sitemapFiles = (await listFiles(distRoot)).filter((file) => /sitemap.*\.xml$/i.test(path.basename(file)));
   if (sitemapFiles.length === 0) fail('[sitemap] brak wygenerowanej mapy witryny');
   const sitemap = (await Promise.all(sitemapFiles.map((file) => readFile(file, 'utf8')))).join('\n');
@@ -247,6 +248,12 @@ async function assertSitemap(contract) {
     const present = sitemap.includes(url);
     if (present !== page.indexable) {
       fail(`[sitemap] ${page.route}: oczekiwano indexable=${page.indexable}, otrzymano ${present}`);
+    }
+  }
+  if (mode === 'production') {
+    for (const route of deferredLegalRoutes) {
+      const url = new URL(route.replace(/^\//, ''), publicBase).href;
+      if (sitemap.includes(url)) fail(`[sitemap] szkic ${route} znalazł się w mapie witryny MVP`);
     }
   }
 }
@@ -276,6 +283,17 @@ async function assertBudgets(contract, files) {
 export async function runSiteAudit(mode = 'preview') {
   if (!['preview', 'production'].includes(mode)) fail(`Nieznany tryb audytu: ${mode}`);
   const contract = JSON.parse(await readFile(path.join(workspaceRoot, 'tests', 'fixtures', 'site-contract.json'), 'utf8'));
+  if (mode === 'production') {
+    contract.pages = contract.pages.filter(({ route }) => !deferredLegalRoutes.has(route));
+    for (const route of deferredLegalRoutes) {
+      try {
+        await access(routeToFile(route));
+        fail(`[publication-safety] szkic ${route} znalazł się w pakiecie MVP`);
+      } catch (error) {
+        if (error?.code !== 'ENOENT') throw error;
+      }
+    }
+  }
   const defaultPublicUrl = new URL(contract.publicUrl);
   const origin = process.env.SITE_ORIGIN ?? defaultPublicUrl.origin;
   const base = process.env.SITE_BASE ?? defaultPublicUrl.pathname;
@@ -340,7 +358,7 @@ export async function runSiteAudit(mode = 'preview') {
     fail('[build-meta] brak trybu lub pełnej wersji źródła');
   }
 
-  await assertSitemap(contract);
+  await assertSitemap(contract, mode);
   await assertSourceSafety();
   const budgets = await assertBudgets(contract, files);
   console.log(`Audyt statyczny ${mode}: ${contract.pages.length} tras; CSS gzip ${budgets.cssGzipBytes} B; JS ${budgets.javascriptBytes} B; artefakt ${budgets.artifactBytes} B.`);

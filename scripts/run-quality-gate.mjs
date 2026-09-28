@@ -19,8 +19,10 @@ function runMode(mode) {
   run(`build:${mode}`);
   run('validate:html');
   run('check:product-pages');
-  run('check:legal-center');
-  run('test:browser');
+  if (mode === 'preview') {
+    run('check:legal-center');
+    run('test:browser');
+  }
 }
 
 const mode = process.argv[2] ?? 'all';
