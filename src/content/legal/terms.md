@@ -1,90 +1,108 @@
-## Status i zakres dokumentu
+## Zakres i wydawca
 
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Ten szablon pokazuje przyszłą strukturę warunków, ale nie ustanawia jeszcze
-wiążących zasad korzystania z Finapso.
+Ten regulamin opisuje korzystanie z aplikacji Android Finapso
+(`app.finapso.android`) w pierwszym wydaniu przeznaczonym dla osób pełnoletnich
+w Polsce. Aplikację udostępnia Bartosz Bohdziewicz. W sprawach dotyczących
+Finapso można napisać na
+[finapso.support@gmail.com](mailto:finapso.support@gmail.com).
 
-## Usługa i wydawca
+Pierwsze wydanie jest bezpłatne. Nie zawiera reklam, zakupów w aplikacji ani
+subskrypcji. Nie trzeba zakładać konta Finapso ani podawać danych osobowych,
+aby prowadzić lokalny budżet. Te warunki nie dotyczą ewentualnych przyszłych
+funkcji odpłatnych lub reklamowych; ich wprowadzenie będzie wymagało osobnych
+informacji i aktualizacji dokumentów.
 
-W zatwierdzonej wersji znajdą się pełne dane wymagane dla aplikacji Finapso
-(`app.finapso.android`) oraz jasny opis roli wydawcy.
+## Co robi Finapso
 
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Finapso służy do samodzielnego zapisywania i porządkowania prywatnych finansów.
+Pozwala między innymi prowadzić budżety i transakcje, korzystać z analiz i
+narzędzi oraz zapisywać paragony. Nie łączy się z rachunkiem bankowym, nie
+wykonuje płatności i nie jest usługą bankową ani księgową.
 
-## Dostęp i brak konta Finapso
+Analizy, prognozy, kalkulatory, symulacje i porównania mają charakter
+orientacyjny. Nie są indywidualną poradą finansową, inwestycyjną, podatkową
+ani prawną. Ich wynik zależy od wpisanych danych i przyjętych założeń.
+Przed ważną decyzją finansową trzeba samodzielnie sprawdzić informacje.
 
-Sekcja wyjaśni zasady korzystania z aplikacji, wymagania urządzenia oraz fakt,
-że Finapso obecnie nie tworzy kont użytkowników.
+## Korzystanie i wymagania techniczne
 
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Do korzystania potrzebne jest zgodne urządzenie z systemem Android i miejsce
+na zapis danych. Podstawowe prowadzenie budżetu nie wymaga stałego połączenia
+z internetem. Pobranie lub aktualizacja aplikacji, otwarcie strony prawnej
+oraz wysłanie wiadomości e-mail wymagają odpowiednich usług i połączenia.
+Niektóre funkcje potrzebują dostępu do aparatu, wybranych plików albo
+powiadomień; użytkownik może nie udzielić tych uprawnień, lecz wtedy dana
+funkcja nie zadziała.
 
-## Narzędzie ewidencji, nie bank ani porada
+Asystent powiadomień jest domyślnie wyłączony. Działa dopiero po świadomym
+włączeniu i nadaniu systemowego dostępu do powiadomień. Proponowaną transakcję
+użytkownik musi sam zatwierdzić. Szczegółowy zakres dostępu i zapisanych
+danych opisuje [polityka prywatności](/finapso-legal/privacy/).
 
-Docelowy tekst opisze Finapso jako narzędzie do prywatnej ewidencji finansów, a
-nie bank, system księgowy ani źródło indywidualnej porady finansowej,
-inwestycyjnej, podatkowej lub prawnej.
+Nie wolno używać aplikacji do działań niezgodnych z prawem ani przesyłać w
+wiadomościach do wsparcia treści bezprawnych. Użytkownik powinien chronić
+urządzenie i sprawdzać wpisy przed ich zapisaniem.
 
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+## Dokładność paragonów i danych
 
-## Poprawność danych, OCR i analiz
+Rozpoznawanie tekstu paragonów (OCR), przypisywanie pozycji i kwot oraz inne
+automatyczne podpowiedzi mogą się mylić. Należy sprawdzić i w razie potrzeby
+poprawić wynik przed zapisem. Finapso nie gwarantuje, że zapisane przez
+użytkownika dane lub obliczenia odzwierciedlają pełną sytuację finansową.
 
-Sekcja będzie wskazywała, że OCR, parser, wykrywanie kwot, analizy i prognozy
-mogą się mylić, a użytkownik powinien sprawdzić dane przed ich zatwierdzeniem.
+## Dane lokalne, kopie i zakończenie korzystania
 
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Dane budżetu są co do zasady przechowywane na urządzeniu. Finapso nie
+udostępnia konta ani automatycznej synchronizacji między urządzeniami.
+Przeniesienie danych wymaga ręcznego eksportu i importu. Plik `.finapso` może
+zawierać dane finansowe, paragony i ustawienia; ma kontrolę integralności,
+ale **nie jest szyfrowany**. Użytkownik wybiera miejsce jego zapisania i
+powinien chronić go przed dostępem innych osób.
 
-## Obowiązki użytkownika
+Można w każdej chwili przestać korzystać z aplikacji. Przed czyszczeniem danych
+aplikacja wymaga zapisania kopii, a potem przeprowadza reset. Odinstalowanie
+aplikacji lub jej reset nie usuwa ręcznie wyeksportowanych plików zapisanych
+poza nią. Zasady zapisu i usuwania danych są opisane dokładniej w
+[polityce prywatności](/finapso-legal/privacy/).
 
-W tej części znajdą się zasady zgodnego z prawem korzystania z aplikacji,
-ochrony urządzenia i weryfikowania zapisanych informacji.
+## Prawa do aplikacji i materiałów
 
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Aplikacja, jej nazwa i własne elementy interfejsu są chronione na zasadach
+wynikających z prawa autorskiego. Pobranie aplikacji daje możliwość korzystania
+z niej na własnym urządzeniu zgodnie z jej przeznaczeniem; nie przenosi praw
+do jej kodu ani marki. Elementy pochodzące od innych twórców mogą podlegać
+odrębnym licencjom. Ten regulamin nie ogranicza uprawnień wynikających z tych
+licencji ani z bezwzględnie obowiązującego prawa.
 
-## Kopie i bezpieczeństwo eksportu
+## Pomoc i zgłoszenia
 
-Docelowy tekst wyjaśni odpowiedzialność za bezpieczne przechowywanie
-wyeksportowanej kopii oraz ograniczenia obecnych zabezpieczeń pliku.
+Pytanie, opis błędu lub reklamację dotyczącą działania Finapso można wysłać na
+[finapso.support@gmail.com](mailto:finapso.support@gmail.com). Warto podać
+wersję aplikacji, używaną funkcję, opis problemu i sposób jego odtworzenia.
+Nie trzeba przesyłać pełnej kopii finansów, paragonów ani PIN-u. Jeżeli
+materiał jest potrzebny do wyjaśnienia sprawy, o jego dołączeniu decyduje
+użytkownik. Zgłoszenie może dotyczyć również niezgodności aplikacji z
+oczekiwanym działaniem; jego rozpatrzenie nie ogranicza praw przysługujących
+na podstawie przepisów.
 
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+W pierwszym wydaniu formularz zgłoszeń w aplikacji jest wyłączony. Przycisk
+kontaktu otwiera program pocztowy użytkownika i nie dołącza automatycznie
+danych z Finapso. Zasady obsługi korespondencji opisuje
+[polityka prywatności](/finapso-legal/privacy/).
 
-## Dostępność funkcji i przyszłe zmiany
+## Aktualizacje i zmiany regulaminu
 
-Sekcja opisze dostępność funkcji, zasady aktualizacji i brak gwarancji
-nieprzerwanego działania. Pierwsze wydanie nie ma zawierać reklam.
-
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-## Własność intelektualna i licencje
-
-Zatwierdzony dokument określi zasady dotyczące aplikacji, marki i komponentów
-udostępnianych na odrębnych licencjach.
-
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-## Odpowiedzialność
-
-Zakres odpowiedzialności zostanie przygotowany i zatwierdzony na późniejszym
-etapie, z uwzględnieniem obowiązujących praw konsumenta.
-
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-## Wsparcie i zgłoszenia
-
-Sekcja wskaże publiczny kanał wsparcia, zasady przesyłania zgłoszeń i sposób
-postępowania z dobrowolnie dołączonymi materiałami.
-
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-## Zmiany warunków
-
-Zatwierdzone rewizje otrzymają daty obowiązywania i historię zmian. Informacja o
-istotnych zmianach będzie przedstawiana w sposób odpowiedni do ich zakresu.
-
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Finapso może otrzymywać aktualizacje naprawiające błędy lub zmieniające
+funkcje. Istotne zmiany zasad korzystania zostaną opisane w nowej, datowanej
+rewizji regulaminu udostępnionej na tej stronie. Sama aktualizacja tekstu nie
+pozbawia użytkownika praw wynikających z przepisów. Jeżeli zmiana będzie
+wymagała osobnej informacji albo zgody, zostanie ona uzyskana przed
+zastosowaniem nowych zasad.
 
 ## Postanowienia końcowe
 
-W tej części znajdą się zatwierdzone reguły właściwości prawa, rozwiązywania
-sporów i kontaktu, bez fikcyjnych kanałów telefonicznych lub adresowych.
-
-Tekst przykładowy: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Do korzystania z Finapso stosuje się prawo polskie. Żadne postanowienie tego
+regulaminu nie wyłącza ani nie ogranicza praw, których nie można wyłączyć na
+podstawie obowiązujących przepisów. W sprawach nieopisanych tutaj można
+skontaktować się z wydawcą pod adresem
+[finapso.support@gmail.com](mailto:finapso.support@gmail.com).

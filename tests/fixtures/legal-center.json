@@ -9,11 +9,11 @@
   },
   {
     "route": "/terms/",
-    "title": "Warunki korzystania z Finapso — szkic | Finapso",
+    "title": "Regulamin korzystania z Finapso — szkic | Finapso",
     "draft": true,
-    "lorem": true,
+    "lorem": false,
     "toc": true,
-    "anchors": ["status-i-zakres-dokumentu", "usługa-i-wydawca", "odpowiedzialność"]
+    "anchors": ["zakres-i-wydawca", "dane-lokalne-kopie-i-zakończenie-korzystania", "pomoc-i-zgłoszenia"]
   },
   {
     "route": "/support/",
