@@ -22,9 +22,10 @@ Data: 2026-09-28.
 - Kanoniczny adres: `https://bartmannn.github.io/finapso-legal/privacy/`.
 - Rewizja strony: `1.0-MVP`, data obowiązywania `2026-09-28`, aplikacja
   `1.53.39`.
-- Produkcyjny pakiet zawiera `/privacy/` i `/support/` jako strony `APPROVED`.
-  `/terms/`, `/licenses/` i `/privacy/archive/` są pomijane; nadal można je
-  rozwijać lokalnie w podglądzie.
+- Stan na 2026-09-28: pakiet zawierał `/privacy/` i `/support/` jako strony
+  `APPROVED`, a `/terms/`, `/licenses/` i `/privacy/archive/` były pomijane.
+  Aktualizacja 2026-09-29: zatwierdzono również `/terms/`; pozostałe dwa
+  szkice nadal są pomijane z pakietu produkcyjnego.
 - Strony prawne nie wymagają JavaScriptu. Nie ma formularza na stronie.
 - Treść w `Finapso_polityka_prywatności_v.1.0.txt` pozostaje materiałem
   roboczym; dokładną rewizją do publikacji jest źródło Markdown strony.
@@ -56,5 +57,6 @@ Data: 2026-09-28.
    odpowiedzi Data safety z finalnym AAB. Nie wpisuje adresu szkicu ani nie
    zakłada, że sama akceptacja w Google zastępuje zgodność z prawem.
 
-Pełny ZAD7 nadal pozostaje osobnym zadaniem dla regulaminu, licencji,
-archiwum i końcowej synchronizacji; ten minimalny wariant go nie zamyka.
+Pełny ZAD7 pozostaje osobnym zadaniem dla końcowej synchronizacji, licencji,
+archiwum i jego pozostałych bramek; minimalny wariant polityki i regulaminu
+nie zamyka całego zadania.

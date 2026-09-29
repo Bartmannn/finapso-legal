@@ -12,7 +12,7 @@
     { "route": "/docs/routing-check/", "indexable": false, "legal": false },
     { "route": "/privacy/", "indexable": true, "legal": true },
     { "route": "/privacy/archive/", "indexable": false, "legal": true },
-    { "route": "/terms/", "indexable": false, "legal": true },
+    { "route": "/terms/", "indexable": true, "legal": true },
     { "route": "/support/", "indexable": true, "legal": true },
     { "route": "/licenses/", "indexable": false, "legal": true },
     { "route": "/404/", "indexable": false, "legal": false }

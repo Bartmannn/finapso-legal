@@ -1,30 +1,32 @@
-# Regulamin Finapso MVP — przegląd roboczy
+# Regulamin Finapso MVP — decyzje i wydanie lokalne
 
-Stan: `DRAFT`, bez publikacji i bez `push`.
+Stan: `APPROVED` przez właściciela dla treści strony; lokalny pakiet produkcyjny,
+bez `push` i bez zmian w Play Console.
 Data weryfikacji: 2026-09-29.
 
 ## Źródło i zakres
 
-- Robocza treść strony: `src/content/legal/terms.md`, rewizja `DRAFT-MVP-1`.
+- Kanoniczna treść strony: `src/content/legal/terms.md`, rewizja `1.0-MVP`,
+  data obowiązywania `2026-09-29`, adres
+  `https://bartmannn.github.io/finapso-legal/terms/` po wdrożeniu.
 - Materiał porównawczy: lokalny `Finapso_regulamin_v.1.0.txt`. Nie jest
-  zatwierdzoną rewizją i nie należy go dodawać do Git. Zawiera prywatne dane
+  zatwierdzoną rewizją i jest ignorowany przez Git. Zawiera prywatne dane
   kontaktowe oraz nieaktualne postanowienia o reklamach, Premium, formularzu
   i innej domenie; żadnej z tych informacji nie przeniesiono do strony.
 - Fakty MVP: bez reklam, płatności, subskrypcji, konta i formularza zgłoszeń;
   pierwsze wydanie dla pełnoletnich osób w Polsce, kontakt e-mail. Przyjęto
   opis lokalnego zapisu, ręcznego eksportu, OCR i asystenta zgodny z
   `src/content/legal/privacy-mvp-review.md` i aplikacją `1.53.39`.
-- Lokalny podgląd `/terms/` pozostaje `DRAFT` z `noindex, nofollow`, widocznym
-  ostrzeżeniem oraz bez daty obowiązywania. Produkcyjny build nadal wyklucza
-  tę trasę. Polityka prywatności i kontakt pozostają osobnym MVP.
+- Właściciel przeczytał i zatwierdził dokładną treść `DRAFT-MVP-1`; ta sama
+  treść została oznaczona jako `1.0-MVP` bez zmian w tekście. `/terms/` jest
+  dostępne w lokalnym pakiecie produkcyjnym bez `noindex` i jest połączone
+  ze stroną główną oraz stopką.
 
-## Decyzje przed publikacją
+## Decyzja o adresie i pozostałe ryzyko
 
-1. Właściciel powinien przeczytać i zatwierdzić dokładną treść rewizji.
-   Zdecydował, że regulamin ma zostać przygotowany bez publicznego adresu
-   korespondencyjnego; adresu z pliku `.txt` nie wolno publikować. Akceptacja
-   dokładnego tekstu pozostaje odrębnym krokiem.
-2. Trzeba ocenić, czy do sposobu udostępniania Finapso stosuje się ustawę o
+Właściciel świadomie zatwierdził regulamin bez publicznego adresu
+korespondencyjnego; adresu z pliku `.txt` nie wolno publikować. Nadal trzeba
+ocenić, czy do sposobu udostępniania Finapso stosuje się ustawę o
    świadczeniu usług drogą elektroniczną. Jej art. 5 ust. 2 pkt 2 wymienia
    imię, nazwisko, miejsce zamieszkania i adres osoby fizycznej, a art. 8
    reguluje treść i udostępnienie regulaminu. Samo imię, nazwisko i e-mail
@@ -34,13 +36,11 @@ Data weryfikacji: 2026-09-29.
    na pewno nie ma zastosowania. Ustawa przewiduje w art. 23 grzywnę za brak,
    nieprawdziwość lub niepełność danych wskazanych w art. 5; wysokości ani
    prawdopodobieństwa takiego skutku nie można tu wiarygodnie oszacować.
-3. Przed zdjęciem `DRAFT` należy ponownie porównać tekst z dokładnym AAB,
-   polityką prywatności, ekranem kontaktu, aktualnym adresem witryny oraz
-   sposobem udostępnienia regulaminu użytkownikowi przed korzystaniem.
-4. Dopiero po zatwierdzeniu dodać datę obowiązywania, zmienić metadane na
-   `APPROVED`, włączyć `/terms/` do produkcyjnego buildu i jego kontroli oraz
-   przygotować ewentualny link z aplikacji. Nie oznaczać pełnego ZAD7 jako
-   ukończonego tylko z powodu przygotowania tego szkicu.
+
+Nie oznaczamy pełnego ZAD7 jako ukończonego. Przed wydaniem aplikacji należy
+porównać treść z dokładnym podpisanym AAB i zapewnić odpowiednio wczesny
+dostęp do regulaminu z aplikacji lub jej procesu udostępnienia. Nie wykonano
+teraz testu urządzeniowego ani zmian Androida. To odrębne zadanie aplikacji.
 
 ## Źródła urzędowe
 
@@ -56,7 +56,8 @@ każdy przepis tej ustawy.
 
 - `npm test`: PASS (kontrola Astro, build podglądu, HTML, centrum prawne,
   17 testów przeglądarkowych, bramki negatywne i kontrakt produkcyjny).
-- Produkcyjny pakiet nadal zawiera tylko zatwierdzone strony prawne:
-  `/privacy/` i `/support/`. Roboczy `/terms/` jest dostępny wyłącznie
-  lokalnie w podglądzie.
+- `npm run test:production`: PASS (12 tras w pakiecie, w tym `/terms/`,
+  oraz walidacja HTML; dwa szkice usunięte z pakietu).
+- Produkcyjny pakiet zawiera `/privacy/`, `/terms/` i `/support/`; szkice
+  `/licenses/` i `/privacy/archive/` pozostają pominięte.
 - Nie wykonywano `push`, zmian w Play Console ani zmian aplikacji Android.

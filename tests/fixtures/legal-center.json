@@ -9,8 +9,8 @@
   },
   {
     "route": "/terms/",
-    "title": "Regulamin korzystania z Finapso — szkic | Finapso",
-    "draft": true,
+    "title": "Regulamin korzystania z Finapso | Finapso",
+    "draft": false,
     "lorem": false,
     "toc": true,
     "anchors": ["zakres-i-wydawca", "dane-lokalne-kopie-i-zakończenie-korzystania", "pomoc-i-zgłoszenia"]

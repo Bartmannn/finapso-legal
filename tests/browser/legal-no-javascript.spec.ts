@@ -2,7 +2,7 @@ import { expect, test } from '@playwright/test';
 
 const legalRoutes = [
   { route: '/privacy/', draft: false },
-  { route: '/terms/', draft: true },
+  { route: '/terms/', draft: false },
   { route: '/support/', draft: false },
   { route: '/licenses/', draft: true },
   { route: '/privacy/archive/', draft: true },

@@ -4,7 +4,7 @@ import { gzipSync } from 'node:zlib';
 
 const workspaceRoot = process.cwd();
 const distRoot = path.join(workspaceRoot, 'dist');
-const deferredLegalRoutes = new Set(['/privacy/archive/', '/terms/', '/licenses/']);
+const deferredLegalRoutes = new Set(['/privacy/archive/', '/licenses/']);
 
 export function fail(message) {
   throw new Error(message);

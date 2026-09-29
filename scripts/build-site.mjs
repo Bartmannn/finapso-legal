@@ -25,7 +25,7 @@ if (!/^[0-9a-f]{40}$/i.test(sourceRevision ?? '')) {
 const distRoot = path.join(process.cwd(), 'dist');
 if (mode === 'production') {
   // The MVP publishes only approved legal routes; these drafts remain local.
-  for (const segments of [['privacy', 'archive'], ['terms'], ['licenses']]) {
+  for (const segments of [['privacy', 'archive'], ['licenses']]) {
     const target = path.resolve(distRoot, ...segments);
     const relative = path.relative(path.resolve(distRoot), target);
     if (!relative || relative.startsWith('..') || path.isAbsolute(relative)) {

@@ -6,3 +6,5 @@ dist/
 .artifacts/
 playwright-report/
 test-results/
+# Lokalny materiał źródłowy regulaminu zawiera prywatne dane kontaktowe.
+Finapso_regulamin_v.1.0.txt

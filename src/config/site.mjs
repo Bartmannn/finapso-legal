@@ -29,7 +29,6 @@ export const noIndexRoutes = Object.freeze([
   routes.notifications,
   routes.routingCheck,
   routes.privacyArchive,
-  routes.terms,
   routes.licenses,
   '/404/',
 ]);
