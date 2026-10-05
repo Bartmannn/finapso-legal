@@ -2,7 +2,7 @@ export const siteConfig = Object.freeze({
   name: 'Finapso',
   language: 'pl',
   title: 'Finapso',
-  description: 'Oficjalna strona i centrum prawne aplikacji Finapso.',
+  description: 'Strona aplikacji Finapso oraz jej dokumenty.',
   origin: 'https://bartmannn.github.io',
   basePath: '/finapso-legal',
   publicUrl: 'https://bartmannn.github.io/finapso-legal/',

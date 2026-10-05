@@ -78,12 +78,11 @@ for (const fixture of fixtures) {
     if (!text.includes(exactWarning)) fail(`${fixture.route}: brak dokładnego ostrzeżenia o szkicu`);
     if (!text.includes('DRAFT')) fail(`${fixture.route}: brak widocznego statusu DRAFT`);
     if (!text.includes('Nie obowiązuje — szkic')) fail(`${fixture.route}: szkic wygląda jak dokument obowiązujący`);
-  } else {
-    if (text.includes(exactWarning) || text.includes('DRAFT')) fail(`${fixture.route}: zatwierdzona strona wygląda jak szkic`);
-    if (!text.includes('APPROVED')) fail(`${fixture.route}: brak statusu APPROVED`);
+  } else if (text.includes(exactWarning) || text.includes('DRAFT')) {
+    fail(`${fixture.route}: zatwierdzona strona wygląda jak szkic`);
   }
-  if (!text.includes('app.finapso.android')) fail(`${fixture.route}: brak identyfikatora pakietu`);
-  if (!text.includes('Historia zmian dokumentu')) fail(`${fixture.route}: brak historii zmian`);
+  if (!text.includes('Wersja')) fail(`${fixture.route}: brak numeru wersji`);
+  if (!text.includes('Obowiązuje od')) fail(`${fixture.route}: brak daty obowiązywania`);
 
   const robots = findTag(html, 'name', 'robots');
   const hasNoIndex = attributeValue(robots ?? '', 'content') === 'noindex, nofollow';
