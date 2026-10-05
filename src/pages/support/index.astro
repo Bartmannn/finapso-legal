@@ -22,7 +22,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <form class="contact-form" action={`mailto:${siteConfig.supportEmail}`} method="post" enctype="text/plain">
       <div class="form-field">
         <label for="sender-name">Imię lub nazwa <span>(opcjonalnie)</span></label>
-        <input id="sender-name" name="Imię lub nazwa" autocomplete="name" />
+        <input id="sender-name" name="Imię lub nazwa" type="text" autocomplete="name" />
       </div>
       <div class="form-field">
         <label for="sender-email">Adres e-mail</label>
@@ -30,7 +30,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </div>
       <div class="form-field">
         <label for="subject">Temat</label>
-        <input id="subject" name="Temat" required />
+        <input id="subject" name="Temat" type="text" required />
       </div>
       <div class="form-field">
         <label for="message">Wiadomość</label>
