@@ -1,26 +1,15 @@
 ---
 import { routes, withBase } from '../../../config/site.mjs';
-import type { LegalChange } from '../../../content/legalSchema';
 import LegalLayout from '../../../layouts/LegalLayout.astro';
 
-const updatedAt = new Date('2026-08-22T00:00:00Z');
-const changeHistory: LegalChange[] = [{
-  revision: 'DRAFT-ZAD5',
-  date: updatedAt,
-  summary: 'Utworzenie pustego mechanizmu archiwum bez fikcyjnych rewizji.',
-}];
 ---
 
 <LegalLayout
   title="Archiwum polityki prywatności Finapso — szkic"
   description="Puste archiwum przeznaczone na wcześniejsze, zatwierdzone rewizje polityki prywatności."
   revision="DRAFT-ZAD5"
-  updatedAt={updatedAt}
   effectiveAt={null}
-  packageName="app.finapso.android"
-  status="DRAFT"
-  changeHistory={changeHistory}
-  appVersion="1.37.25"
+  draft={true}
   breadcrumbs={[
     { label: 'Strona główna', href: withBase(routes.home) },
     { label: 'Polityka prywatności', href: withBase(routes.privacy) },

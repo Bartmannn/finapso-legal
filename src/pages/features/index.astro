@@ -1,7 +1,5 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import ButtonLink from '../../components/ButtonLink.astro';
-import Callout from '../../components/Callout.astro';
 import Card from '../../components/Card.astro';
 import { routes, withBase } from '../../config/site.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -17,102 +15,97 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   ]} />
 
   <header class="page-header">
-    <p class="eyebrow">Finapso 1.53.39</p>
-    <h1>Finanse osobiste pod Twoją kontrolą</h1>
+    <h1>Poznaj funkcje Finapso</h1>
     <p class="page-lead">
-      Finapso porządkuje budżety i transakcje na urządzeniu. Nie jest bankiem,
-      nie łączy się z rachunkiem bankowym i nie udziela porad finansowych.
+      Zapisuj codzienne finanse, sprawdzaj podsumowania i korzystaj z narzędzi,
+      które pomagają planować budżet. Finapso nie łączy się z rachunkiem bankowym.
     </p>
   </header>
 
   <section class="section-block" aria-labelledby="daily-title">
     <div class="section-heading">
-      <p class="eyebrow">Na co dzień</p>
-      <h2 id="daily-title">Od zapisu transakcji do czytelnego obrazu budżetu</h2>
+      <h2 id="daily-title">Budżety, transakcje i pulpit</h2>
     </div>
     <div class="card-grid">
       <Card>
         <h3>Budżety</h3>
-        <p>Twórz osobne budżety domowe lub firmowe, ustawiaj walutę i przełączaj się między nimi.</p>
+        <p>Twórz osobne budżety domowe lub firmowe, ustawiaj ich nazwę i walutę, przełączaj się między nimi oraz sprawdzaj budżet demonstracyjny z przykładowymi danymi.</p>
       </Card>
       <Card>
         <h3>Transakcje</h3>
-        <p>Zapisuj wydatki i przychody, używaj kategorii, filtruj historię oraz zarządzaj transakcjami cyklicznymi.</p>
+        <p>Zapisuj wydatki i przychody z własną nazwą, opisem, datą i kategorią. Dodawaj transakcje grupowe i cykliczne, filtruj historię, ponawiaj wcześniejsze wpisy oraz korzystaj z podpowiedzi kategorii i nazw.</p>
       </Card>
       <Card>
         <h3>Pulpit</h3>
-        <p>Sprawdzaj saldo, przychody, wydatki i strukturę kategorii dla wybranego budżetu i miesiąca.</p>
+        <p>Sprawdzaj miesięczny bilans, saldo, przychody, wydatki i strukturę kategorii. Zobacz zestawienia miesięczne oraz dzienny wykres dla bieżących i wcześniejszych miesięcy.</p>
       </Card>
       <Card>
         <h3>Analizy</h3>
-        <p>Oglądaj trendy, struktury i prognozy oparte na zapisanych danych. Wyniki są orientacyjne, nie są poradą finansową.</p>
+        <p>Analizuj przychody, wydatki, kategorie i trendy. Sprawdzaj runway, prognozę bieżącego miesiąca, najważniejsze wnioski oraz orientacyjne porównania statystyczne dla odpowiednich budżetów.</p>
       </Card>
     </div>
+    <p class="section-note">Analizy mają charakter informacyjny i nie są poradą finansową, inwestycyjną ani podatkową.</p>
   </section>
 
   <section class="section-block" aria-labelledby="receipts-title">
     <div class="section-heading">
-      <p class="eyebrow">Paragony</p>
-      <h2 id="receipts-title">Lokalny odczyt z obowiązkową kontrolą wyniku</h2>
+      <h2 id="receipts-title">Paragony i automatyczny odczyt</h2>
     </div>
     <div class="split-panel">
       <div class="prose">
         <p>
-          Finapso przyjmuje zdjęcia, wiele obrazów i pliki PDF. OCR działa
-          lokalnie, a rozpoznane pozycje można sprawdzić, poprawić i przypisać
-          do kategorii przed zapisaniem transakcji.
+          Dodawaj zdjęcia i dokumenty, odczytuj z nich tekst, a następnie poprawiaj
+          rozpoznane dane. Przypisuj pozycje do kategorii i zapisuj sprawdzone
+          informacje jako transakcje.
         </p>
         <p>
-          Skanowanie, OCR i parser pozostają funkcjami rozwijanymi. Jakość zależy
-          od obrazu i układu paragonu; aplikacja nie obiecuje rozpoznania każdego
-          dokumentu ani bezbłędnego wyniku.
+          Wynik odczytu zależy od jakości zdjęcia i układu dokumentu, dlatego przed
+          zapisem sprawdź kwotę, datę, sklep, produkty, rabaty i kategorie.
         </p>
       </div>
-      <Callout title="Najpierw sprawdź">
-        <p>Kwota, data, sklep, produkty, rabaty i kategorie wymagają kontroli użytkownika przed zatwierdzeniem.</p>
-      </Callout>
+      <Card>
+        <h3>Raport budżetowy PDF</h3>
+        <p>Wygeneruj czytelny raport ze swojego budżetu na podstawie zapisanych informacji.</p>
+      </Card>
     </div>
   </section>
 
   <section class="section-block" aria-labelledby="data-title">
     <div class="section-heading">
-      <p class="eyebrow">Dane</p>
-      <h2 id="data-title">Lokalny rdzeń i przenośna kopia</h2>
+      <h2 id="data-title">Dane i prywatność</h2>
     </div>
     <div class="card-grid">
       <Card>
         <h3>Bez konta Finapso</h3>
-        <p>Aplikacja nie tworzy własnego konta użytkownika ani bankowego profilu online.</p>
+        <p>Korzystaj bez zakładania konta Finapso. Aplikacja nie łączy się z rachunkiem bankowym.</p>
       </Card>
       <Card>
         <h3>Pełny eksport i import</h3>
-        <p>Możesz zapisać wersjonowaną kopię danych i później przywrócić ją przez systemowy wybór pliku.</p>
+        <p>Twoje podstawowe dane finansowe pozostają na telefonie, a kopię danych możesz wyeksportować i później zaimportować.</p>
       </Card>
       <Card>
         <h3>Opcjonalny PIN</h3>
-        <p>Czterocyfrowy PIN ogranicza dostęp do aplikacji na urządzeniu. Nie jest szyfrowaniem bazy ani pliku kopii.</p>
+        <p>Ustaw opcjonalny PIN, aby ograniczyć dostęp do aplikacji na urządzeniu. Podstawowe funkcje działają bez stałego internetu.</p>
       </Card>
       <Card>
-        <h3>Kontakt e-mail</h3>
-        <p>Formularz jest wyłączony. Finapso otwiera klienta poczty bez automatycznego dołączania danych i paragonów.</p>
+        <h3>Asystent powiadomień</h3>
+        <p>Włącz go tylko, jeśli chcesz wykrywać potencjalne kwoty transakcji z powiadomień. Zawsze potwierdzasz wpis przed zapisem.</p>
       </Card>
     </div>
   </section>
 
-  <Callout title="Pierwsze wydanie bez reklam" variant="info">
-    <p>
-      Produkcyjna bramka reklam jest zamknięta. Jeżeli reklamy wrócą kiedyś do
-      zakresu, opis funkcji i polityka prywatności zostaną zaktualizowane przed
-      ich wydaniem.
-    </p>
-  </Callout>
-
-  <section class="next-step" aria-labelledby="next-title">
-    <div>
-      <p class="eyebrow">Następny krok</p>
-      <h2 id="next-title">Zacznij od prostego budżetu</h2>
-      <p>Dokumentacja prowadzi od utworzenia budżetu do pierwszej kopii danych.</p>
+  <section class="section-block" aria-labelledby="tools-title">
+    <div class="section-heading">
+      <h2 id="tools-title">Dodatkowe narzędzia</h2>
     </div>
-    <ButtonLink href={withBase(routes.gettingStarted)}>Przejdź do pierwszych kroków</ButtonLink>
+    <div class="tool-grid">
+      <Card><h3>Analizy</h3><p>Sprawdzaj dane budżetu w jednym miejscu.</p></Card>
+      <Card><h3>Cele</h3><p>Ustalaj cele finansowe i obserwuj postępy.</p></Card>
+      <Card><h3>Planer</h3><p>Planuj przyszłe wydatki przed ich zapisem.</p></Card>
+      <Card><h3>Podsumowanie wydarzeń</h3><p>Podsumowuj wybrane okresy i wydarzenia.</p></Card>
+      <Card><h3>Baza paragonów</h3><p>Przechowuj i przeglądaj dodane dokumenty.</p></Card>
+      <Card><h3>Kalkulator oszczędzania</h3><p>Sprawdzaj efekty regularnego odkładania pieniędzy.</p></Card>
+      <Card><h3>Symulator inwestycji</h3><p>Przygotuj własną, orientacyjną symulację inwestycji.</p></Card>
+    </div>
   </section>
 </BaseLayout>

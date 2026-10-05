@@ -1,7 +1,8 @@
 # Finapso Legal
 
-Statyczna, wielostronicowa witryna i centrum prawne aplikacji Finapso. Projekt
-korzysta z Astro i generuje zwykłe pliki HTML działające bez routera klienckiego.
+Statyczna, wielostronicowa strona aplikacji Finapso z opisem funkcji, dokumentami
+prawnymi i kontaktem. Projekt korzysta z Astro i generuje zwykłe pliki HTML
+działające bez routera klienckiego.
 
 Publiczny adres po osobno autoryzowanej publikacji:
 `https://bartmannn.github.io/finapso-legal/`.
@@ -74,15 +75,11 @@ Build tworzy również `/finapso-legal/robots.txt`, `sitemap-index.xml`,
 `sitemap-0.xml` oraz stronę błędu `404.html`. Sitemap nie wymienia szkiców ani
 tras z `noindex`.
 
-Strony produktowe i dokumentacja opisują aplikację w wersji `1.37.25`. Trasa
-asystenta powiadomień ma status roboczy i `noindex, nofollow`, ponieważ funkcja
-oczekuje na odbiór publikacyjny w repozytorium aplikacji. Techniczna trasa
-`/docs/routing-check/` pozostaje nieindeksowanym fixture'em.
-
-Całe centrum prawne pozostaje demonstracyjnym szkicem `DRAFT` z
-`noindex, nofollow`. Polityka i warunki zawierają jawnie oznaczone lorem ipsum,
-dlatego `/privacy/` nie może jeszcze zostać podpięte w Google Play Console.
-Archiwum jest puste i nie tworzy fikcyjnych wcześniejszych rewizji.
+Strona „Dokumenty” prowadzi do aktualnego regulaminu i polityki prywatności,
+które zachowują stabilne adresy `/terms/` oraz `/privacy/`. Trasa asystenta
+powiadomień ma status roboczy i `noindex, nofollow`, a techniczna trasa
+`/docs/routing-check/` pozostaje nieindeksowanym fixture'em. Archiwum polityki
+i strona licencji są szkicami, dlatego nie są publikowane w pakiecie produkcyjnym.
 
 ## Treść
 
@@ -173,9 +170,11 @@ jest bezpiecznym podglądem: strony prawne zachowują `DRAFT`, ostrzeżenie i
 
 ## Granice prywatności strony
 
-Strona nie używa analityki, reklam, trackerów, cookies, zewnętrznych fontów ani
-formularzy sieciowych. Dokumenty `.txt` w katalogu głównym są materiałami do
-późniejszego audytu i nie są automatycznie publikowane.
+Strona nie używa analityki, reklam, trackerów, cookies ani zewnętrznych fontów.
+Formularz kontaktowy nie ma własnego backendu: przygotowuje wiadomość w programie
+pocztowym użytkownika, który sam decyduje o jej wysłaniu. Dokumenty `.txt` w
+katalogu głównym są materiałami do późniejszego audytu i nie są automatycznie
+publikowane.
 
 Kontakt bezpieczeństwa pozostaje odłożony. Niedeployowany plik
 `docs/examples/security.txt.disabled.example` dokumentuje bezpieczny punkt

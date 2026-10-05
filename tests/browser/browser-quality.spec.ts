@@ -76,6 +76,18 @@ test('mobilna nawigacja i cele dotykowe działają od 320 px', async ({ page }) 
   }
 });
 
+test('formularz kontaktowy przygotowuje wiadomość w programie pocztowym bez zewnętrznego backendu', async ({ page }) => {
+  await page.goto('support/', { waitUntil: 'networkidle' });
+
+  const form = page.locator('form.contact-form');
+  await expect(form).toHaveAttribute('action', 'mailto:finapso.support@gmail.com');
+  await expect(form.getByLabel('Imię lub nazwa (opcjonalnie)')).toHaveCount(1);
+  await expect(form.getByLabel('Adres e-mail')).toHaveAttribute('required', '');
+  await expect(form.getByLabel('Temat')).toHaveAttribute('required', '');
+  await expect(form.getByLabel('Wiadomość')).toHaveAttribute('required', '');
+  await expect(page.getByText('Wiadomość zostanie wysłana dopiero po zatwierdzeniu jej w tym programie.')).toBeVisible();
+});
+
 for (const route of ['/', '/privacy/']) {
   test(`${route} utrzymuje CLS poniżej 0,1 w lokalnym profilu`, async ({ page }) => {
     await page.addInitScript(() => {

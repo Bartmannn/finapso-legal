@@ -1,26 +1,15 @@
 ---
 import { routes, withBase } from '../../config/site.mjs';
-import type { LegalChange } from '../../content/legalSchema';
 import LegalLayout from '../../layouts/LegalLayout.astro';
 
-const updatedAt = new Date('2026-08-22T00:00:00Z');
-const changeHistory: LegalChange[] = [{
-  revision: 'DRAFT-ZAD5',
-  date: updatedAt,
-  summary: 'Utworzenie chronionego miejsca na przyszły wykaz licencji.',
-}];
 ---
 
 <LegalLayout
   title="Licencje Finapso — szkic"
   description="Demonstracyjna strona przyszłych informacji o licencjach Finapso i użytych komponentów."
   revision="DRAFT-ZAD5"
-  updatedAt={updatedAt}
   effectiveAt={null}
-  packageName="app.finapso.android"
-  status="DRAFT"
-  changeHistory={changeHistory}
-  appVersion="1.37.25"
+  draft={true}
 >
   <h2 id="status-wykazu">Status wykazu</h2>
   <p>

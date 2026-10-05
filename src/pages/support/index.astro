@@ -1,77 +1,49 @@
 ---
-import ButtonLink from '../../components/ButtonLink.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { routes, siteConfig, withBase } from '../../config/site.mjs';
-import type { LegalChange } from '../../content/legalSchema';
-import LegalLayout from '../../layouts/LegalLayout.astro';
-
-const updatedAt = new Date('2026-09-28T00:00:00Z');
-const changeHistory: LegalChange[] = [{
-  revision: '1.0-MVP',
-  date: updatedAt,
-  summary: 'Dostosowanie kontaktu i zasad usuwania korespondencji do zakresu MVP.',
-}];
+import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<LegalLayout
-  title="Wsparcie i prywatność Finapso"
-  description="Kontakt, pomoc i żądania dotyczące danych Finapso."
-  revision="1.0-MVP"
-  updatedAt={updatedAt}
-  effectiveAt={updatedAt}
-  packageName="app.finapso.android"
-  status="APPROVED"
-  changeHistory={changeHistory}
-  appVersion="1.53.39"
+<BaseLayout
+  title="Skontaktuj się z nami"
+  description="Kontakt w sprawach pytań, problemów i propozycji dotyczących Finapso."
 >
-  <h2 id="kontakt">Kontakt</h2>
-  <p>
-    Publiczny adres wsparcia i kontaktu w sprawach prywatności to
-    <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>.
-    Nie wysyłaj hasła, PIN-u, pełnej kopii danych ani danych finansowych, jeżeli
-    nie są konieczne do opisania problemu.
-  </p>
-  <div class="button-row">
-    <ButtonLink href={`mailto:${siteConfig.supportEmail}?subject=Wsparcie%20Finapso`}>Napisz do wsparcia</ButtonLink>
-  </div>
+  <Breadcrumbs items={[
+    { label: 'Strona główna', href: withBase(routes.home) },
+    { label: 'Skontaktuj się z nami' },
+  ]} />
 
-  <h2 id="brak-kont">Brak kont użytkowników</h2>
-  <p>
-    Finapso obecnie nie tworzy kont użytkowników. Nie istnieje więc konto
-    Finapso, które można usunąć przez tę stronę. Dane zapisane na urządzeniu i
-    dane dobrowolnie wysłane do wsparcia wymagają dwóch różnych działań.
-  </p>
+  <header class="page-header">
+    <h1>Skontaktuj się z nami</h1>
+    <p class="page-lead">Napisz, jeśli masz pytanie, chcesz zgłosić problem lub podzielić się propozycją dotyczącą Finapso.</p>
+  </header>
 
-  <h2 id="dane-lokalne">Usuwanie danych lokalnych</h2>
-  <ol>
-    <li>Otwórz w aplikacji <strong>Ustawienia</strong>, a następnie <strong>Dane aplikacji</strong>.</li>
-    <li>Wybierz pełne czyszczenie danych i przeczytaj oba potwierdzenia.</li>
-    <li>Zapisz wymaganą kopię w bezpiecznej lokalizacji; anulowanie zapisu zatrzymuje usuwanie.</li>
-    <li>Jeżeli PIN jest aktywny, potwierdź operację zgodnie z ekranem aplikacji.</li>
-  </ol>
-  <p>
-    Szczegóły kopii i osobnego zarządzania materiałami paragonów opisuje strona
-    <a href={withBase(routes.dataAndBackups)}>Dane i kopie</a>.
-  </p>
+  <section class="contact-layout" aria-label="Kontakt z Finapso">
+    <form class="contact-form" action={`mailto:${siteConfig.supportEmail}`} method="post" enctype="text/plain">
+      <div class="form-field">
+        <label for="sender-name">Imię lub nazwa <span>(opcjonalnie)</span></label>
+        <input id="sender-name" name="Imię lub nazwa" autocomplete="name" />
+      </div>
+      <div class="form-field">
+        <label for="sender-email">Adres e-mail</label>
+        <input id="sender-email" name="Adres e-mail" type="email" autocomplete="email" required />
+      </div>
+      <div class="form-field">
+        <label for="subject">Temat</label>
+        <input id="subject" name="Temat" required />
+      </div>
+      <div class="form-field">
+        <label for="message">Wiadomość</label>
+        <textarea id="message" name="Wiadomość" rows="7" required></textarea>
+      </div>
+      <button class="button button-primary" type="submit">Wyślij wiadomość</button>
+    </form>
 
-  <h2 id="dane-wsparcia">Żądanie usunięcia danych przesłanych do wsparcia</h2>
-  <p>
-    Aby poprosić o wcześniejsze usunięcie dobrowolnie przesłanego zgłoszenia lub
-    załączników, napisz z adresu użytego w zgłoszeniu. Podaj orientacyjną datę i
-    temat wiadomości, aby można było odnaleźć właściwy materiał. Nie dołączaj
-    ponownie danych, które mają zostać usunięte.
-  </p>
-  <div class="button-row">
-    <ButtonLink href={`mailto:${siteConfig.supportEmail}?subject=Usuni%C4%99cie%20danych%20zg%C5%82oszenia%20Finapso`} variant="secondary">
-      Poproś o usunięcie danych zgłoszenia
-    </ButtonLink>
-  </div>
-
-  <h2 id="czas-odpowiedzi">Przechowywanie korespondencji</h2>
-  <p>
-    Wydawca przyjął comiesięczny ręczny przegląd skrzynki i usuwanie zgłoszeń
-    przy pierwszym przeglądzie po upływie 180 dni od otrzymania. Sprawy nadal
-    otwarte są usuwane przy najbliższym przeglądzie po ich zakończeniu, chyba
-    że konkretny obowiązek prawny lub roszczenie uzasadnia dłuższe zachowanie.
-    Dane można usunąć wcześniej na wniosek przesłany na adres wsparcia.
-  </p>
-</LegalLayout>
+    <div class="contact-details prose">
+      <p>Po wybraniu przycisku otworzy się Twój program pocztowy. Wiadomość zostanie wysłana dopiero po zatwierdzeniu jej w tym programie.</p>
+      <p>Możesz też napisać bezpośrednio na <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>.</p>
+      <p>Nie przesyłaj danych finansowych, PIN-u, haseł ani pełnej kopii danych, jeżeli nie są potrzebne do opisania problemu.</p>
+      <p>Informacje o przetwarzaniu danych znajdziesz w <a href={withBase(routes.privacy)}>polityce prywatności</a>.</p>
+    </div>
+  </section>
+</BaseLayout>

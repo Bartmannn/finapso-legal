@@ -1,69 +1,58 @@
 ---
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Card from '../../components/Card.astro';
+import ButtonLink from '../../components/ButtonLink.astro';
 import { routes, withBase } from '../../config/site.mjs';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const articles = [
+const documents = [
   {
-    href: routes.gettingStarted,
-    title: 'Pierwsze kroki',
-    description: 'Utwórz budżet i zapisz pierwszą transakcję.',
+    href: routes.terms,
+    title: 'Regulamin użytkowania Finapso',
+    version: '1.0',
+    effectiveAt: '29.09.2026',
+    description: 'Zasady korzystania z aplikacji Finapso.',
+    action: 'Przeczytaj regulamin',
   },
   {
-    href: routes.dataAndBackups,
-    title: 'Dane i kopie',
-    description: 'Wyeksportuj, sprawdź i przywróć pełną kopię danych.',
-  },
-  {
-    href: routes.receipts,
-    title: 'Paragony i OCR',
-    description: 'Zaimportuj dokument i popraw lokalny odczyt przed zapisem.',
-  },
-  {
-    href: routes.notifications,
-    title: 'Asystent powiadomień — status',
-    description: 'Sprawdź ograniczenia i warunki pozostałe przed wydaniem funkcji.',
-    status: 'Materiał roboczy',
+    href: routes.privacy,
+    title: 'Polityka prywatności Finapso',
+    version: '1.0',
+    effectiveAt: '28.09.2026',
+    description: 'Informacje o danych lokalnych, kontakcie, usługach zewnętrznych i prawach użytkownika.',
+    action: 'Przeczytaj politykę prywatności',
   },
 ];
 ---
 
 <BaseLayout
-  title="Dokumentacja"
-  description="Instrukcje korzystania z Finapso, oparte na zachowaniu aplikacji w wersji 1.53.39."
-  pageKind="docs"
+  title="Dokumenty"
+  description="Regulamin użytkowania i polityka prywatności aplikacji Finapso."
 >
   <Breadcrumbs items={[
     { label: 'Strona główna', href: withBase(routes.home) },
-    { label: 'Dokumentacja' },
+    { label: 'Dokumenty' },
   ]} />
 
   <header class="page-header">
-    <p class="eyebrow">Finapso 1.53.39</p>
-    <h1>Dokumentacja użytkowa</h1>
+    <h1>Dokumenty Finapso</h1>
     <p class="page-lead">
-      Krótkie instrukcje do konkretnych zadań. Każdy artykuł podaje ograniczenia,
-      datę aktualizacji i wersję aplikacji, której dotyczy.
+      Tutaj znajdziesz aktualny regulamin użytkowania oraz politykę prywatności.
     </p>
   </header>
 
-  <section class="card-grid docs-index" aria-label="Artykuły dokumentacji">
-    {articles.map((article) => (
-      <Card>
-        {article.status && <p class="status-label">{article.status}</p>}
-        <h2><a href={withBase(article.href)}>{article.title}</a></h2>
-        <p>{article.description}</p>
-      </Card>
+  <section class="document-card-grid" aria-label="Dokumenty Finapso">
+    {documents.map((document) => (
+      <article class="document-card">
+        <div>
+          <h2>{document.title}</h2>
+          <dl class="document-summary">
+            <div><dt>Wersja</dt><dd>{document.version}</dd></div>
+            <div><dt>Obowiązuje od</dt><dd>{document.effectiveAt}</dd></div>
+          </dl>
+          <p>{document.description}</p>
+        </div>
+        <ButtonLink href={withBase(document.href)} variant="secondary">{document.action}</ButtonLink>
+      </article>
     ))}
-  </section>
-
-  <section class="next-step" aria-labelledby="docs-help-title">
-    <div>
-      <p class="eyebrow">Nie znalazłeś odpowiedzi?</p>
-      <h2 id="docs-help-title">Napisz do wsparcia</h2>
-      <p>Nie dołączaj danych finansowych ani paragonów, jeśli nie są potrzebne do rozwiązania problemu.</p>
-    </div>
-    <a class="button button-secondary" href="mailto:finapso.support@gmail.com?subject=Wsparcie%20Finapso">finapso.support@gmail.com</a>
   </section>
 </BaseLayout>
