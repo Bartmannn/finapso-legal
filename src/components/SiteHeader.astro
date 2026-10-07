@@ -7,18 +7,14 @@ interface Props {
 
 const { currentPath } = Astro.props;
 const navigation = [
-  { href: routes.home, label: 'Strona główna' },
-  { href: routes.features, label: 'Funkcje' },
-  { href: routes.docs, label: 'Dokumentacja' },
+  { href: routes.terms, label: 'Regulamin' },
   { href: routes.privacy, label: 'Prywatność' },
 ];
 
 function isCurrent(href: string) {
   const resolvedHref = withBase(href);
 
-  return href === routes.home
-    ? currentPath === resolvedHref
-    : currentPath.startsWith(resolvedHref);
+  return currentPath.startsWith(resolvedHref);
 }
 ---
 

@@ -200,14 +200,25 @@ select {
 }
 
 .footer-inner {
-  display: grid;
-  gap: var(--space-8);
-  padding-block: var(--space-10);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-block: var(--space-5);
+}
+
+.footer-inner a {
+  display: inline-block;
+  min-height: 2.75rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .footer-summary {
   display: grid;
   gap: var(--space-3);
+  min-width: 0;
   max-width: 34rem;
 }
 
@@ -235,8 +246,7 @@ select {
 }
 
 .footer-meta {
-  padding-block-start: var(--space-6);
-  border-top: 1px solid var(--color-border-subtle);
+  margin: 0;
 }
 
 .eyebrow {
@@ -530,6 +540,7 @@ select {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: var(--space-3);
+  min-width: 0;
   padding: var(--space-5);
   border: 1px solid var(--color-border);
   border-inline-start: 0.3rem solid var(--color-brand);
@@ -556,7 +567,10 @@ select {
 
 .callout-content {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-1);
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .callout-title {
@@ -660,15 +674,6 @@ select {
 
   .card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .footer-inner {
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: start;
-  }
-
-  .footer-meta {
-    grid-column: 1 / -1;
   }
 
   .split-panel,

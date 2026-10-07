@@ -1,4 +1,4 @@
-import { mkdir, rm, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { execFileSync, spawnSync } from 'node:child_process';
 import path from 'node:path';
 
@@ -23,17 +23,6 @@ if (!/^[0-9a-f]{40}$/i.test(sourceRevision ?? '')) {
 }
 
 const distRoot = path.join(process.cwd(), 'dist');
-if (mode === 'production') {
-  // The MVP publishes only approved legal routes; these drafts remain local.
-  for (const segments of [['privacy', 'archive'], ['licenses']]) {
-    const target = path.resolve(distRoot, ...segments);
-    const relative = path.relative(path.resolve(distRoot), target);
-    if (!relative || relative.startsWith('..') || path.isAbsolute(relative)) {
-      throw new Error(`Niebezpieczny cel usunięcia szkicu: ${target}`);
-    }
-    await rm(target, { recursive: true, force: true });
-  }
-}
 await mkdir(distRoot, { recursive: true });
 await writeFile(
   path.join(distRoot, 'build-meta.json'),

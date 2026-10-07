@@ -1,20 +1,10 @@
 ---
-import { routes, siteConfig, withBase } from '../config/site.mjs';
+import { siteConfig } from '../config/site.mjs';
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <div class="footer-summary">
-      <strong>{siteConfig.name}</strong>
-      <p>Oficjalna strona informacyjna i centrum dokumentów aplikacji Finapso.</p>
-    </div>
-    <nav aria-label="Nawigacja w stopce">
-      <ul class="footer-nav">
-        <li><a href={withBase(routes.privacy)}>Prywatność</a></li>
-        <li><a href={withBase(routes.terms)}>Regulamin</a></li>
-        <li><a href={withBase(routes.support)}>Wsparcie</a></li>
-      </ul>
-    </nav>
-    <p class="footer-meta">© {new Date().getFullYear()} Bartosz Bohdziewicz. Wszystkie prawa zastrzeżone.</p>
+    <p class="footer-meta">© {new Date().getFullYear()} {siteConfig.name}</p>
+    <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>
   </div>
 </footer>

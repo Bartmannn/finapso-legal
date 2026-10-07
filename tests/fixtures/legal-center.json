@@ -2,41 +2,11 @@
   {
     "route": "/privacy/",
     "title": "Polityka prywatności Finapso | Finapso",
-    "draft": false,
-    "lorem": false,
-    "toc": true,
-    "anchors": ["zakres-polityki-i-kontakt", "dane-zapisane-na-urządzeniu", "przechowywanie-i-usuwanie"]
+    "source": "FINAL_Polityka_prywatności_FINAPSO.txt"
   },
   {
     "route": "/terms/",
-    "title": "Regulamin korzystania z Finapso | Finapso",
-    "draft": false,
-    "lorem": false,
-    "toc": true,
-    "anchors": ["zakres-i-wydawca", "dane-lokalne-kopie-i-zakończenie-korzystania", "pomoc-i-zgłoszenia"]
-  },
-  {
-    "route": "/support/",
-    "title": "Wsparcie i prywatność Finapso | Finapso",
-    "draft": false,
-    "lorem": false,
-    "toc": false,
-    "anchors": ["kontakt", "dane-lokalne", "dane-wsparcia"]
-  },
-  {
-    "route": "/licenses/",
-    "title": "Licencje Finapso — szkic | Finapso",
-    "draft": true,
-    "lorem": false,
-    "toc": false,
-    "anchors": ["status-wykazu", "zakres", "kontakt-licencje"]
-  },
-  {
-    "route": "/privacy/archive/",
-    "title": "Archiwum polityki prywatności Finapso — szkic | Finapso",
-    "draft": true,
-    "lorem": false,
-    "toc": false,
-    "anchors": ["brak-rewizji", "zasada-archiwizacji"]
+    "title": "Regulamin aplikacji Finapso | Finapso",
+    "source": "FINAL_Regulamin_aplikacji_FINAPSO.txt"
   }
 ]

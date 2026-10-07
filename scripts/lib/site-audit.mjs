@@ -4,7 +4,7 @@ import { gzipSync } from 'node:zlib';
 
 const workspaceRoot = process.cwd();
 const distRoot = path.join(workspaceRoot, 'dist');
-const deferredLegalRoutes = new Set(['/privacy/archive/', '/licenses/']);
+const deferredLegalRoutes = new Set();
 
 export function fail(message) {
   throw new Error(message);
@@ -52,6 +52,8 @@ export function productionPlaceholderLabels(html) {
   const checks = [
     ['lorem ipsum', /lorem\s+ipsum/i],
     ['status DRAFT', /\bDRAFT\b/i],
+    ['data do uzupełnienia', /\[DATA\]/i],
+    ['adres do uzupełnienia', /\[ADRES KORESPONDENCYJNY\]/i],
     ['domena przykładowa', /(?:example\.(?:com|org|net)|przyklad\.pl)/i],
     ['kontakt przykładowy', /(?:example@|kontakt@przyklad|test@test)/i],
     ['Publisher ID przykładowy', /ca-app-pub-(?:0{6,}|x{4,}|123456)/i],
@@ -200,6 +202,12 @@ export function assertWorkflowSafety(workflow) {
     .sort();
   if (writes.join('|') !== ['id-token', 'pages'].sort().join('|')) {
     fail('[workflow-permissions] wykryto dodatkowe uprawnienia zapisu');
+  }
+  const normalizedWorkflow = workflow.replace(/\r\n/g, '\n');
+  const productionStep = normalizedWorkflow.indexOf('      - name: Build publishable site\n        run: npm run build:production');
+  const uploadStep = normalizedWorkflow.indexOf('      - name: Upload GitHub Pages artifact');
+  if (productionStep < 0 || uploadStep < 0 || productionStep > uploadStep) {
+    fail('[workflow-production] artefakt Pages musi powstać z build:production po testach');
   }
   if (!/^      - name: Deploy GitHub Pages artifact$/m.test(deployJob)
       || !/^        id: deployment$/m.test(deployJob)

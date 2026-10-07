@@ -1,113 +1,31 @@
 ---
 import ButtonLink from '../components/ButtonLink.astro';
-import Callout from '../components/Callout.astro';
 import Card from '../components/Card.astro';
-import { routes, siteConfig, withBase } from '../config/site.mjs';
+import { routes, withBase } from '../config/site.mjs';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-const structuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  name: 'Finapso',
-  applicationCategory: 'FinanceApplication',
-  operatingSystem: 'Android',
-  softwareVersion: '1.53.39',
-  inLanguage: 'pl',
-  url: siteConfig.publicUrl,
-  description: 'Aplikacja Android do lokalnego zarządzania finansami osobistymi.',
-};
 ---
 
 <BaseLayout
-  title={siteConfig.title}
-  description="Finapso to aplikacja Android do lokalnego zarządzania budżetami, transakcjami i analizami finansów osobistych."
-  structuredData={structuredData}
+  title="Finapso"
+  description="Regulamin i polityka prywatności aplikacji Finapso."
 >
-  <section class="hero hero-home" aria-labelledby="hero-title">
-    <p class="eyebrow">Finanse osobiste na Androidzie</p>
-    <h1 id="hero-title">Zapisuj, porządkuj i rozumiej swój budżet</h1>
-    <p>
-      Finapso pomaga prowadzić budżety, transakcje i analizy w aplikacji, której
-      rdzeń finansowy działa lokalnie. Bez konta Finapso, bankowego backendu i
-      integracji z rachunkiem bankowym.
-    </p>
-    <div class="button-row">
-      <ButtonLink href={withBase(routes.gettingStarted)}>Pierwsze kroki</ButtonLink>
-      <ButtonLink href={withBase(routes.features)} variant="secondary">Poznaj funkcje</ButtonLink>
-    </div>
-    <p class="availability-note">Wersja opisana na stronie: 1.53.39 · Link Google Play pojawi się po udostępnieniu prawidłowego adresu aplikacji.</p>
+  <section class="hero hero-home" aria-labelledby="home-title">
+    <p class="eyebrow">Finapso</p>
+    <h1 id="home-title">Dokumenty aplikacji</h1>
+    <p>Wybierz dokument, który chcesz przeczytać.</p>
   </section>
 
-  <section class="section-block" aria-labelledby="overview-title">
-    <div class="section-heading">
-      <p class="eyebrow">Spokojny przepływ pracy</p>
-      <h2 id="overview-title">Najważniejsze obszary w jednym miejscu</h2>
-    </div>
+  <section class="section-block" aria-label="Dokumenty Finapso">
     <div class="card-grid">
       <Card>
-        <h3>Budżety i transakcje</h3>
-        <p>Oddzielne budżety, historia, kategorie oraz ręczne i cykliczne wpisy.</p>
+        <h2>Regulamin</h2>
+        <p>Zasady korzystania z aplikacji Finapso.</p>
+        <ButtonLink href={withBase(routes.terms)}>Przeczytaj regulamin</ButtonLink>
       </Card>
       <Card>
-        <h3>Pulpit i analizy</h3>
-        <p>Saldo, struktury kategorii, trendy i orientacyjne prognozy oparte na zapisanych danych.</p>
-      </Card>
-      <Card>
-        <h3>Paragony z korektą</h3>
-        <p>Lokalny OCR i parser pomagają odczytać dokument, ale wynik zawsze można i należy sprawdzić.</p>
-      </Card>
-      <Card>
-        <h3>Kopie danych</h3>
-        <p>Wersjonowany eksport i import obejmuje dane aplikacji oraz prywatne pliki paragonów.</p>
-      </Card>
-    </div>
-  </section>
-
-  <section class="section-block" aria-labelledby="privacy-title">
-    <div class="section-heading">
-      <p class="eyebrow">Prywatność w praktyce</p>
-      <h2 id="privacy-title">Lokalny rdzeń nie oznacza braku wyjątków</h2>
-    </div>
-    <div class="split-panel">
-      <div class="prose">
-        <p>
-          Dane budżetów, transakcji i paragonów są domyślnie przechowywane na
-          urządzeniu. Podstawowe funkcje finansowe nie wymagają stałego połączenia
-          z internetem.
-        </p>
-        <p>
-          Kontakt ze wsparciem odbywa się przez aplikację pocztową użytkownika.
-          Finapso nie dołącza automatycznie danych finansowych ani paragonów.
-        </p>
-      </div>
-      <Callout title="Pierwsze wydanie bez reklam">
-        <p>Reklamy i produkcyjny ruch reklamowy są wyłączone. Ich ewentualne dodanie będzie wymagało osobnej decyzji oraz aktualizacji dokumentów.</p>
-      </Callout>
-    </div>
-  </section>
-
-  <section class="section-block" id="legal-center" aria-labelledby="legal-title">
-    <div class="section-heading">
-      <p class="eyebrow">Dokumenty i kontakt</p>
-      <h2 id="legal-title">Centrum prawne Finapso</h2>
-      <p>Dokumenty prawne mają osobne, stabilne adresy i nie są kopiowane do dokumentacji produktowej.</p>
-    </div>
-    <div class="card-grid">
-      <Card>
-        <h3><a href={withBase(routes.privacy)}>Polityka prywatności</a></h3>
-        <p>Zasady dotyczące danych lokalnych, kopii, asystenta powiadomień oraz kontaktu ze wsparciem.</p>
-      </Card>
-      <Card>
-        <h3><a href={withBase(routes.terms)}>Regulamin</a></h3>
-        <p>Warunki korzystania z bezpłatnej wersji Finapso.</p>
-      </Card>
-      <Card>
-        <h3><a href={withBase(routes.support)}>Wsparcie</a></h3>
-        <p>Kontakt w sprawach produktu i prywatności: {siteConfig.supportEmail}.</p>
-      </Card>
-      <Card>
-        <h3><a href={withBase(routes.docs)}>Dokumentacja</a></h3>
-        <p>Instrukcje do funkcji i ograniczeń aplikacji.</p>
+        <h2>Polityka prywatności</h2>
+        <p>Informacje o danych i prywatności w Finapso.</p>
+        <ButtonLink href={withBase(routes.privacy)}>Przeczytaj politykę</ButtonLink>
       </Card>
     </div>
   </section>

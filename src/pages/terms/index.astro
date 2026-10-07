@@ -1,28 +1,11 @@
 ---
-import { getEntry, render } from 'astro:content';
+import { readFile } from 'node:fs/promises';
+import path from 'node:path';
 
-import LegalLayout from '../../layouts/LegalLayout.astro';
+import VerbatimLegalLayout from '../../layouts/VerbatimLegalLayout.astro';
 
-const entry = await getEntry('legal', 'terms');
-
-if (!entry) {
-  throw new Error('Brak wpisu kolekcji dla trasy /terms/.');
-}
-
-const { Content, headings } = await render(entry);
+const source = path.join(process.cwd(), 'src', 'content', 'legal', 'FINAL_Regulamin_aplikacji_FINAPSO.txt');
+const documentText = await readFile(source, 'utf8');
 ---
 
-<LegalLayout
-  title={entry.data.title}
-  description={entry.data.description}
-  headings={headings}
-  revision={entry.data.revision}
-  updatedAt={entry.data.updatedAt}
-  effectiveAt={entry.data.effectiveAt}
-  packageName={entry.data.packageName}
-  status={entry.data.status}
-  changeHistory={entry.data.changeHistory}
-  appVersion={entry.data.appVersion}
->
-  <Content />
-</LegalLayout>
+<VerbatimLegalLayout title="Regulamin aplikacji Finapso" documentText={documentText} />

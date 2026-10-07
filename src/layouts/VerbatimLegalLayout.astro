@@ -1,0 +1,39 @@
+---
+import LegalDraftNotice from '../components/LegalDraftNotice.astro';
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  documentText: string;
+}
+
+const { title, documentText } = Astro.props;
+---
+
+<BaseLayout title={title} description={title} draft pageKind="legal">
+  <div class="legal-reading">
+    <LegalDraftNotice />
+    <h1>{title}</h1>
+    <div class="legal-verbatim">{documentText}</div>
+  </div>
+</BaseLayout>
+
+<style>
+  .legal-reading {
+    width: min(100%, 48rem);
+    margin-inline: auto;
+  }
+
+  h1 {
+    max-width: none;
+    margin-block: 2rem 1.5rem;
+  }
+
+  .legal-verbatim {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+</style>

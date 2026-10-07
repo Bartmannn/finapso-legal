@@ -18,7 +18,6 @@ function runMode(mode) {
   run('check');
   run(`build:${mode}`);
   run('validate:html');
-  run('check:product-pages');
   if (mode === 'preview') {
     run('check:legal-center');
     run('test:browser');

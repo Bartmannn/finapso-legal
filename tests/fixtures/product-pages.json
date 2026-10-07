@@ -1,9 +1,3 @@
 [
-  { "route": "/", "title": "Finapso", "draft": false, "structuredData": true },
-  { "route": "/features/", "title": "Funkcje | Finapso", "draft": false },
-  { "route": "/docs/", "title": "Dokumentacja | Finapso", "draft": false },
-  { "route": "/docs/getting-started/", "title": "Pierwsze kroki | Finapso", "draft": false },
-  { "route": "/docs/data-and-backups/", "title": "Dane i kopie | Finapso", "draft": false },
-  { "route": "/docs/receipts/", "title": "Paragony i OCR | Finapso", "draft": false },
-  { "route": "/docs/notifications/", "title": "Asystent powiadomień — status funkcji | Finapso", "draft": true }
+  { "route": "/", "title": "Finapso", "draft": false }
 ]

@@ -5,8 +5,8 @@ import { productionPlaceholderLabels, routeToFile } from './lib/site-audit.mjs';
 
 const npmCli = process.env.npm_execpath;
 if (!npmCli) throw new Error('Uruchom kontrakt przez npm, aby ustalić ścieżkę npm-cli.');
-const releaseLegalRoutes = ['/privacy/', '/terms/', '/support/'];
-const deferredLegalRoutes = ['/privacy/archive/', '/licenses/'];
+const releaseLegalRoutes = ['/privacy/', '/terms/'];
+const deferredLegalRoutes = [];
 
 function run(script, capture = false) {
   const result = spawnSync(process.execPath, [npmCli, 'run', script], {
@@ -61,5 +61,5 @@ if (expectedBlockers.length > 0) {
       if (error?.code !== 'ENOENT') throw error;
     }
   }
-  console.log('Kontrakt produkcyjny: PASS (polityka, regulamin i kontakt; dwa szkice pominięte).');
+  console.log('Kontrakt produkcyjny: PASS (polityka i regulamin).');
 }

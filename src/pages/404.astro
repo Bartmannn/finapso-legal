@@ -13,12 +13,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <p class="eyebrow">Błąd 404</p>
     <h1 id="not-found-title">Nie znaleziono strony</h1>
     <p>
-      Adres mógł się zmienić albo zawierać literówkę. Dokumenty prawne i
-      instrukcje pozostają dostępne z głównej nawigacji.
+      Adres mógł się zmienić albo zawierać literówkę. Regulamin i politykę
+      prywatności znajdziesz na stronie głównej.
     </p>
     <div class="button-row">
       <ButtonLink href={withBase(routes.home)}>Wróć na stronę główną</ButtonLink>
-      <ButtonLink href={withBase(routes.docs)} variant="secondary">Otwórz dokumentację</ButtonLink>
     </div>
   </section>
 </BaseLayout>

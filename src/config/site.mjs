@@ -2,7 +2,7 @@ export const siteConfig = Object.freeze({
   name: 'Finapso',
   language: 'pl',
   title: 'Finapso',
-  description: 'Oficjalna strona i centrum prawne aplikacji Finapso.',
+  description: 'Regulamin i polityka prywatności aplikacji Finapso.',
   origin: 'https://bartmannn.github.io',
   basePath: '/finapso-legal',
   publicUrl: 'https://bartmannn.github.io/finapso-legal/',
@@ -11,25 +11,13 @@ export const siteConfig = Object.freeze({
 
 export const routes = Object.freeze({
   home: '/',
-  features: '/features/',
-  docs: '/docs/',
-  gettingStarted: '/docs/getting-started/',
-  dataAndBackups: '/docs/data-and-backups/',
-  receipts: '/docs/receipts/',
-  notifications: '/docs/notifications/',
   privacy: '/privacy/',
-  privacyArchive: '/privacy/archive/',
   terms: '/terms/',
-  support: '/support/',
-  licenses: '/licenses/',
-  routingCheck: '/docs/routing-check/',
 });
 
 export const noIndexRoutes = Object.freeze([
-  routes.notifications,
-  routes.routingCheck,
-  routes.privacyArchive,
-  routes.licenses,
+  routes.privacy,
+  routes.terms,
   '/404/',
 ]);
 

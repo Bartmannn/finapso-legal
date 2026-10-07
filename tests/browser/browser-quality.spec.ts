@@ -2,7 +2,7 @@ import AxeBuilder from '@axe-core/playwright';
 import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
-const keyRoutes = ['/', '/features/', '/docs/', '/privacy/', '/terms/', '/support/'];
+const keyRoutes = ['/', '/privacy/', '/terms/'];
 const localOrigin = 'http://127.0.0.1:4321';
 
 function relativeRoute(route: string) {
@@ -75,6 +75,23 @@ test('mobilna nawigacja i cele dotykowe działają od 320 px', async ({ page }) 
     expect(target.height, `${target.label}: wysokość`).toBeGreaterThanOrEqual(44);
   }
 });
+
+for (const route of ['/privacy/', '/terms/']) {
+  test(`${route} nie przewija się poziomo przy dużym tekście na telefonie`, async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto(relativeRoute(route));
+    await page.evaluate(() => { document.documentElement.style.fontSize = '200%'; });
+    const { clientWidth, scrollWidth, overflowing } = await page.evaluate(() => ({
+      clientWidth: document.documentElement.clientWidth,
+      scrollWidth: document.documentElement.scrollWidth,
+      overflowing: [...document.querySelectorAll<HTMLElement>('body *')]
+        .filter((element) => element.getBoundingClientRect().right > document.documentElement.clientWidth)
+        .slice(0, 8)
+        .map((element) => `${element.tagName}.${element.className}: ${Math.ceil(element.getBoundingClientRect().right)}px`),
+    }));
+    expect(scrollWidth, overflowing.join(', ')).toBeLessThanOrEqual(clientWidth);
+  });
+}
 
 for (const route of ['/', '/privacy/']) {
   test(`${route} utrzymuje CLS poniżej 0,1 w lokalnym profilu`, async ({ page }) => {
