@@ -1,6 +1,5 @@
 {
   "publicUrl": "https://bartmannn.github.io/finapso-legal/",
-  "draftWarning": "Wersja robocza — nie jest zatwierdzonym dokumentem i nie może zostać użyta w Google Play Console.",
   "pages": [
     { "route": "/", "indexable": true, "legal": false },
     { "route": "/privacy/", "indexable": false, "legal": true },

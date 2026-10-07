@@ -1,6 +1,5 @@
 ---
 import { siteConfig, withBase } from '../config/site.mjs';
-import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import '../styles/global.css';
 
@@ -57,6 +56,5 @@ const openGraphImage = new URL(withBase('/brand/finapso-og.svg'), Astro.site ?? 
         <slot />
       </div>
     </main>
-    <SiteFooter />
   </body>
 </html>

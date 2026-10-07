@@ -7,9 +7,9 @@ stabilne adresy HTML:
 - `https://bartmannn.github.io/finapso-legal/terms/` — regulamin.
 
 Treść stron pochodzi dosłownie z plików
-`src/content/legal/FINAL_Polityka_prywatności_FINAPSO.txt` i
-`src/content/legal/FINAL_Regulamin_aplikacji_FINAPSO.txt`. Witryna nie zmienia
-ich brzmienia; test przeglądarkowy porównuje widoczny tekst z plikami źródłowymi.
+`src/content/legal/FINAL_Polityka_prywatności_FINAPSO.md` i
+`src/content/legal/FINAL_Regulamin_aplikacji_FINAPSO.md`. Witryna nie zmienia
+ich brzmienia; składnia nagłówków Markdown jest tylko renderowana jako nagłówki HTML.
 Dokumenty są zwykłym HTML, czytelnym bez JavaScriptu, a strona nie dodaje
 analityki, reklam ani formularza.
 
@@ -17,8 +17,9 @@ analityki, reklam ani formularza.
 
 Oba przesłane pliki nadal zawierają `[DATA]` i `[ADRES KORESPONDENCYJNY]`.
 Opisują też Premium, subskrypcje i reklamy, chociaż bieżące MVP ich nie ma.
-Na prośbę właściciela treści nie zostały zmienione. W podglądzie strony są
-oznaczone jako nieobowiązujące (`DRAFT`, `noindex, nofollow`). Produkcyjny build
+Na prośbę właściciela treści nie zostały zmienione. W podglądzie strony nie ma
+dodatkowych oznaczeń ani notatek; podstrony mają techniczne `noindex, nofollow`.
+Produkcyjny build
 i workflow GitHub Pages celowo zatrzymują publikację tych wersji. Nie należy
 podawać obecnego podglądu w Google Play Console.
 

@@ -1,6 +1,4 @@
 ---
-import ButtonLink from '../components/ButtonLink.astro';
-import Card from '../components/Card.astro';
 import { routes, withBase } from '../config/site.mjs';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
@@ -9,24 +7,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   title="Finapso"
   description="Regulamin i polityka prywatności aplikacji Finapso."
 >
-  <section class="hero hero-home" aria-labelledby="home-title">
-    <p class="eyebrow">Finapso</p>
-    <h1 id="home-title">Dokumenty aplikacji</h1>
-    <p>Wybierz dokument, który chcesz przeczytać.</p>
-  </section>
-
-  <section class="section-block" aria-label="Dokumenty Finapso">
-    <div class="card-grid">
-      <Card>
-        <h2>Regulamin</h2>
-        <p>Zasady korzystania z aplikacji Finapso.</p>
-        <ButtonLink href={withBase(routes.terms)}>Przeczytaj regulamin</ButtonLink>
-      </Card>
-      <Card>
-        <h2>Polityka prywatności</h2>
-        <p>Informacje o danych i prywatności w Finapso.</p>
-        <ButtonLink href={withBase(routes.privacy)}>Przeczytaj politykę</ButtonLink>
-      </Card>
-    </div>
+  <section class="legal-reading" aria-labelledby="home-title">
+    <h1 id="home-title">Finapso</h1>
+    <nav aria-label="Dokumenty Finapso">
+      <ul class="document-links">
+        <li><a href={withBase(routes.privacy)}>Polityka prywatności</a></li>
+        <li><a href={withBase(routes.terms)}>Regulamin</a></li>
+      </ul>
+    </nav>
   </section>
 </BaseLayout>
+
+<style>
+  .legal-reading { width: min(100%, 48rem); margin-inline: auto; }
+  .document-links { display: grid; gap: 1rem; padding: 0; margin-block-start: 2rem; list-style: none; }
+  .document-links a { display: block; min-height: 2.75rem; padding-block: 0.6rem; font-size: 1.2rem; }
+</style>

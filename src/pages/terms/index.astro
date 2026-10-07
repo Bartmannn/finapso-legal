@@ -4,7 +4,7 @@ import path from 'node:path';
 
 import VerbatimLegalLayout from '../../layouts/VerbatimLegalLayout.astro';
 
-const source = path.join(process.cwd(), 'src', 'content', 'legal', 'FINAL_Regulamin_aplikacji_FINAPSO.txt');
+const source = path.join(process.cwd(), 'src', 'content', 'legal', 'FINAL_Regulamin_aplikacji_FINAPSO.md');
 const documentText = await readFile(source, 'utf8');
 ---
 

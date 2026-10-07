@@ -2,11 +2,11 @@
   {
     "route": "/privacy/",
     "title": "Polityka prywatności Finapso | Finapso",
-    "source": "FINAL_Polityka_prywatności_FINAPSO.txt"
+    "source": "FINAL_Polityka_prywatności_FINAPSO.md"
   },
   {
     "route": "/terms/",
     "title": "Regulamin aplikacji Finapso | Finapso",
-    "source": "FINAL_Regulamin_aplikacji_FINAPSO.txt"
+    "source": "FINAL_Regulamin_aplikacji_FINAPSO.md"
   }
 ]

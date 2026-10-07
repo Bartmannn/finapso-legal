@@ -67,14 +67,11 @@ export function assertProductionLegal(html, route) {
   if (labels.length > 0) fail(`[release-placeholder] ${route}: ${labels.join(', ')}`);
 }
 
-export function assertPreviewLegal(html, route, draftWarning) {
+export function assertPreviewLegal(html, route) {
   const labels = productionPlaceholderLabels(html);
   if (labels.length === 0) return;
 
   const robots = findTag(html, 'meta', 'name', 'robots');
-  if (!visibleText(html).includes(draftWarning)) {
-    fail(`[preview-draft] ${route}: brak obowiązkowego ostrzeżenia`);
-  }
   if (attributeValue(robots ?? '', 'content')?.toLowerCase() !== 'noindex, nofollow') {
     fail(`[preview-draft] ${route}: brak noindex, nofollow`);
   }
@@ -335,7 +332,7 @@ export async function runSiteAudit(mode = 'preview') {
         const labels = productionPlaceholderLabels(html);
         if (labels.length > 0) productionBlockers.push(`${page.route}: ${labels.join(', ')}`);
       } else {
-        assertPreviewLegal(html, page.route, contract.draftWarning);
+        assertPreviewLegal(html, page.route);
       }
     }
   }

@@ -1,5 +1,4 @@
 ---
-import LegalDraftNotice from '../components/LegalDraftNotice.astro';
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
@@ -8,14 +7,32 @@ interface Props {
 }
 
 const { title, documentText } = Astro.props;
+const normalized = documentText.replace(/\r\n/g, '\n');
+const firstBreak = normalized.indexOf('\n');
+const firstLine = firstBreak < 0 ? normalized : normalized.slice(0, firstBreak);
+const heading = firstLine.replace(/^#\s+/, '');
+const body = firstBreak < 0 ? '' : normalized.slice(firstBreak + 1);
+const sections: Array<{ kind: 'text' | 'h2' | 'h3'; text: string }> = [];
+const markdownHeading = /^#{2,3} .+$/gm;
+let cursor = 0;
+for (const match of body.matchAll(markdownHeading)) {
+  const position = match.index ?? 0;
+  if (position > cursor) sections.push({ kind: 'text', text: body.slice(cursor, position) });
+  sections.push({ kind: match[0].startsWith('### ') ? 'h3' : 'h2', text: match[0].replace(/^#{2,3} /, '') });
+  cursor = position + match[0].length;
+}
+if (cursor < body.length) sections.push({ kind: 'text', text: body.slice(cursor) });
 ---
 
 <BaseLayout title={title} description={title} draft pageKind="legal">
-  <div class="legal-reading">
-    <LegalDraftNotice />
-    <h1>{title}</h1>
-    <div class="legal-verbatim">{documentText}</div>
-  </div>
+  <article class="legal-reading">
+    <h1>{heading}</h1>
+    {sections.map((section) => section.kind === 'h2'
+      ? <h2>{section.text}</h2>
+      : section.kind === 'h3'
+        ? <h3>{section.text}</h3>
+        : <div class="legal-verbatim">{section.text}</div>)}
+  </article>
 </BaseLayout>
 
 <style>
@@ -26,7 +43,12 @@ const { title, documentText } = Astro.props;
 
   h1 {
     max-width: none;
-    margin-block: 2rem 1.5rem;
+    margin-block: 0 1.5rem;
+  }
+
+  h2,
+  h3 {
+    margin-block: 1.5rem 0.5rem;
   }
 
   .legal-verbatim {
