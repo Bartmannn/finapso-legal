@@ -1,6 +1,6 @@
 REGULAMIN APLIKACJI MOBILNEJ FINAPSO
 
-Obowiązuje od dnia: [DATA]
+Obowiązuje od dnia: 12 października 2026 r.
 
 
 INFORMACJE O USŁUGODAWCY
@@ -8,8 +8,6 @@ INFORMACJE O USŁUGODAWCY
 Aplikacja mobilna Finapso jest udostępniana przez:
 
 Bartosz Bohdziewicz, prowadzący działalność nierejestrowaną w rozumieniu art. 5 ustawy z dnia 6 marca 2018 r. – Prawo przedsiębiorców,
-
-adres korespondencyjny: [ADRES KORESPONDENCYJNY],
 
 adres poczty elektronicznej: finapso.support@gmail.com,
 
@@ -284,11 +282,7 @@ https://bartmannn.github.io/finapso-legal/.
 
 § 13. REKLAMACJE
 
-1. Użytkownik może składać reklamacje dotyczące działania Aplikacji lub świadczonej Usługi:
-
-1) pocztą elektroniczną na adres finapso.support@gmail.com;
-
-2) pisemnie na adres korespondencyjny Usługodawcy.
+1. Użytkownik może składać reklamacje dotyczące działania Aplikacji lub świadczonej Usługi pocztą elektroniczną na adres finapso.support@gmail.com.
 
 2. Reklamacja powinna zawierać informacje pozwalające ustalić jej przedmiot, w szczególności opis problemu oraz dane umożliwiające udzielenie odpowiedzi.
 
@@ -313,9 +307,7 @@ https://bartmannn.github.io/finapso-legal/.
 
 4. Oświadczenie o odstąpieniu może zostać przesłane na adres:
 
-finapso.support@gmail.com
-
-lub na adres korespondencyjny Usługodawcy.
+finapso.support@gmail.com.
 
 5. Do zachowania terminu wystarczy wysłanie oświadczenia przed jego upływem.
 
@@ -374,8 +366,6 @@ ZAŁĄCZNIK NR 1 – WZÓR FORMULARZA ODSTĄPIENIA OD UMOWY
 Adresat:
 
 Bartosz Bohdziewicz
-
-adres korespondencyjny wskazany w Regulaminie
 
 e-mail: finapso.support@gmail.com
 

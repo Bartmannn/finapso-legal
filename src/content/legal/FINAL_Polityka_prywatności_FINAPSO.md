@@ -1,6 +1,6 @@
 # POLITYKA PRYWATNOŚCI APLIKACJI FINAPSO
 
-Wersja obowiązująca od dnia: [DATA]
+Wersja obowiązująca od dnia: 12 października 2026 r.
 
 
 ## 1. INFORMACJE OGÓLNE
@@ -20,13 +20,11 @@ Administratorem danych osobowych jest:
 
 Bartosz Bohdziewicz, prowadzący działalność nierejestrowaną w rozumieniu art. 5 ustawy z dnia 6 marca 2018 r. – Prawo przedsiębiorców,
 
-adres korespondencyjny: [ADRES KORESPONDENCYJNY],
-
 adres e-mail: finapso.support@gmail.com,
 
 dalej jako „Administrator”.
 
-W sprawach związanych z prywatnością i przetwarzaniem danych osobowych można kontaktować się z Administratorem za pośrednictwem wskazanego adresu e-mail lub adresu korespondencyjnego.
+W sprawach związanych z prywatnością i przetwarzaniem danych osobowych można kontaktować się z Administratorem za pośrednictwem wskazanego adresu e-mail.
 
 
 ## 3. JAKIE DANE SĄ PRZETWARZANE?

@@ -15,13 +15,14 @@ analityki, reklam ani formularza.
 
 ## Status dokumentów
 
-Oba przesłane pliki nadal zawierają `[DATA]` i `[ADRES KORESPONDENCYJNY]`.
-Opisują też Premium, subskrypcje i reklamy, chociaż bieżące MVP ich nie ma.
-Na prośbę właściciela treści nie zostały zmienione. W podglądzie strony nie ma
-dodatkowych oznaczeń ani notatek; podstrony mają techniczne `noindex, nofollow`.
+Na polecenie właściciela z 2026-10-12 w obu dokumentach wpisano datę
+12 października 2026 r. i usunięto wzmianki o adresie korespondencyjnym
+wydawcy. Dokumenty nadal opisują Premium, subskrypcje i reklamy, chociaż
+bieżące MVP ich nie ma. Na stronie nie ma dodatkowych oznaczeń ani notatek;
+podstrony mają techniczne `noindex, nofollow`.
 Na polecenie właściciela z 2026-10-12 pola `[DATA]` i
 `[ADRES KORESPONDENCYJNY]` nie blokują builda produkcyjnego ani publikacji
-GitHub Pages. Pozostają widoczne w dokumentach. Pozostałe kontrole publikacji
+GitHub Pages. Pozostałe kontrole publikacji
 (m.in. lorem ipsum, DRAFT, przykładowe kontakty, sekrety i zasoby zewnętrzne)
 pozostają aktywne. Przejście builda jest weryfikacją techniczną, nie oceną treści
 dokumentów.
