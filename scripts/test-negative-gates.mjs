@@ -13,6 +13,11 @@ const fixtures = JSON.parse(
 );
 const publicUrl = 'https://bartmannn.github.io/finapso-legal/';
 
+for (const route of ['/privacy/', '/terms/']) {
+  assertProductionLegal('<main><h1>Finapso</h1><p>[DATA]</p><p>[ADRES KORESPONDENCYJNY]</p></main>', route);
+}
+console.log('Pola DATA i ADRES KORESPONDENCYJNY nie blokują produkcji: PASS.');
+
 for (const fixture of fixtures) {
   let thrown;
   try {

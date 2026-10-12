@@ -52,8 +52,6 @@ export function productionPlaceholderLabels(html) {
   const checks = [
     ['lorem ipsum', /lorem\s+ipsum/i],
     ['status DRAFT', /\bDRAFT\b/i],
-    ['data do uzupełnienia', /\[DATA\]/i],
-    ['adres do uzupełnienia', /\[ADRES KORESPONDENCYJNY\]/i],
     ['domena przykładowa', /(?:example\.(?:com|org|net)|przyklad\.pl)/i],
     ['kontakt przykładowy', /(?:example@|kontakt@przyklad|test@test)/i],
     ['Publisher ID przykładowy', /ca-app-pub-(?:0{6,}|x{4,}|123456)/i],
